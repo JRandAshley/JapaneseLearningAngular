@@ -1,0 +1,10 @@
+<!-- {{currentCard}} -->
+<div *ngFor="let card of deck1; let i = index" style="display: inline-block;">
+    <button (click)="setCurrentCardTo(i)">{{i+1}}</button>
+</div>
+<div *ngFor="let card of deck1; let i = index">
+    <div *ngIf="i === currentCard">
+        <app-flashcards-details [detail]="card" (nextCardEvent)="receiveNextCardEvent($event)"></app-flashcards-details>
+    </div>
+</div>
+<!-- <app-flashcards-details *ngFor="let card of deck1" [detail]="card"></app-flashcards-details> -->

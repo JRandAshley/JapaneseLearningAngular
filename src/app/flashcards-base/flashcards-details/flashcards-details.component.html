@@ -1,0 +1,13 @@
+<div style="border-style: solid;">
+        <div *ngIf="isFlipped === false">
+                <h1>{{detail.frontSideA}}</h1>
+                <h2>{{detail.frontSideB}}</h2>
+                <button (click)="flipCard()">Flip</button>
+        </div>
+        <div *ngIf="isFlipped === true">
+                <h1>{{detail.backSideA}}</h1>
+                <h2>{{detail.backSideB}}</h2>
+                <button (click)="incorrect()">X</button>
+                <button (click)="correct()">Y</button>
+        </div>
+</div>

@@ -1,4 +1,6 @@
+import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'JapaneseLearning';
+  title: String;
+
+  constructor(){
+    this.title = "Everything Japanese";
+  }
 }
