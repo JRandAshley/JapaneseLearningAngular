@@ -11,6 +11,6 @@ export class AppComponent {
   title: String;
 
   constructor(){
-    this.title = "Everything Japanese";
+    this.title = "Learning Japanese";
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-charts-index',
@@ -6,7 +6,5 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './charts-index.component.scss'
 })
 export class ChartsIndexComponent {
-  ngOnInit(): void {
-    //console.log("on init");
-  }
+  
 }

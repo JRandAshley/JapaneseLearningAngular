@@ -1,17 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ChartsIndexComponent } from './charts-index/charts-index.component';
+import { FormsModule } from '@angular/forms';
+import { ChartsSyllabaryComponent } from './charts-syllabary/charts-syllabary.component';
 
 
 @NgModule({
   declarations: [
-    ChartsIndexComponent
+    ChartsIndexComponent,
+    ChartsSyllabaryComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   exports: [
-    ChartsIndexComponent
+    ChartsIndexComponent,
+    ChartsSyllabaryComponent
   ]
 })
 export class ChartsBaseModule { }
