@@ -1,20 +1,381 @@
-<table>
-    <tr>
-        <th>Hiragana Ending</th>
-        <th>Replacement Pattern</th>
-        <th>Dictionary Form</th>
-        <th>Te-Form</th>
-    </tr>
-    <tr>
-        <td>ku</td>
-        <td>ite</td>
-        <td>kaku</td>
-        <td>kaite</td>
-    </tr>
-    <tr>
-        <td>gu</td>
-        <td>ide</td>
-        <td>oyogu</td>
-        <td>oyoide</td>
-    </tr>
-</table>
+<!-- <table>
+    <thead>
+        <tr>
+            <th>Hiragana Ending</th>
+            <th>Replacement Pattern</th>
+            <th>Dictionary Form</th>
+            <th>Te-Form</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>ku</td>
+            <td>ite</td>
+            <td>kaku</td>
+            <td>kaite</td>
+        </tr>
+        <tr>
+            <td>gu</td>
+            <td>ide</td>
+            <td>oyogu</td>
+            <td>oyoide</td>
+        </tr>
+    </tbody>
+</table> -->
+
+<div>
+    <input
+    type="checkbox"
+    [(ngModel)]="showTermsAndPhrases" />
+    <label>Terms and Phrases</label>
+    <input
+    type="checkbox"
+    [(ngModel)]="showNumbers" />
+    <label>Numbers</label>
+</div>
+
+<hr/>
+
+<div *ngIf="showTermsAndPhrases===true">
+    <div class="row">
+        <div class="column">
+            <h1>Basic Terms</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Kanji</th>
+                        <th>Hiragana</th>
+                        <th>Romaji</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>私</td>
+                        <td>わたし</td>
+                        <td>watashi</td>
+                        <td>I(formal for men)</td>
+                    </tr>
+                    <tr>
+                        <td>僕</td>
+                        <td>ぼく</td>
+                        <td>boku</td>
+                        <td>I(informal for men)</td>
+                    </tr>
+                    <tr>
+                        <td>彼</td>
+                        <td>かれ</td>
+                        <td>kare</td>
+                        <td>he</td>
+                    </tr>
+                    <tr>
+                        <td>彼女</td>
+                        <td>かのじょ</td>
+                        <td>kanojo</td>
+                        <td>she</td>
+                    </tr>
+                    <tr>
+                        <td>あなた</td>
+                        <td>あなた</td>
+                        <td>anata</td>
+                        <td>you(singular/normal)</td>
+                    </tr>
+                    <tr>
+                        <td>これ</td>
+                        <td>これ</td>
+                        <td>kore</td>
+                        <td>this (noun)</td>
+                    </tr>
+                    <tr>
+                        <td>ここ</td>
+                        <td>ここ</td>
+                        <td>koko</td>
+                        <td>here</td>
+                    </tr>
+                    <tr>
+                        <td>この</td>
+                        <td>この</td>
+                        <td>kono</td>
+                        <td>this(descriptive - ex. this pen)</td>
+                    </tr>
+                    <tr>
+                        <td>それ</td>
+                        <td>それ</td>
+                        <td>sore</td>
+                        <td>that (noun)</td>
+                    </tr>
+                    <tr>
+                        <td>そこ</td>
+                        <td>そこ</td>
+                        <td>soko</td>
+                        <td>there</td>
+                    </tr>
+                    <tr>
+                        <td>その</td>
+                        <td>その</td>
+                        <td>sono</td>
+                        <td>that(descriptive - ex. that pen)</td>
+                    </tr>
+                    <tr>
+                        <td>人</td>
+                        <td>ひと</td>
+                        <td>hito</td>
+                        <td>person</td>
+                    </tr>
+                    <tr>
+                        <td>犬</td>
+                        <td>いぬ</td>
+                        <td>inu</td>
+                        <td>dog</td>
+                    </tr>
+                    <tr>
+                        <td>猫</td>
+                        <td>ねこ</td>
+                        <td>neko</td>
+                        <td>cat</td>
+                    </tr>
+                    <tr>
+                        <td>家</td>
+                        <td>いえ</td>
+                        <td>ie</td>
+                        <td>house</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="column">
+            <h1>Particles</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Hiragana</th>
+                        <th>Pronouncation</th>
+                        <th>Usage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>は</td>
+                        <td>When following a topic "ha" is pronounced as "wa"</td>
+                        <td>Topic Marker</td>
+                    </tr>
+                    <tr>
+                        <td>が</td>
+                        <td>ga</td>
+                        <td>Subject Marker</td>
+                    </tr>
+                    <tr>
+                        <td>を</td>
+                        <td>Pronounced as "o"</td>
+                        <td>Direct Object Marker</td>
+                    </tr>
+                    <tr>
+                        <td>に</td>
+                        <td>ni</td>
+                        <td>Direction Marker, Time Marker, Indirect Object Marker</td>
+                    </tr>
+                    <tr>
+                        <td>へ</td>
+                        <td>When following a place or direction "he" is pronounced as "e"</td>
+                        <td>Direction Marker</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h1>Common Phrases</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Kanji</th>
+                        <th>Hiragana</th>
+                        <th>Romaji</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ありがとう</td>
+                        <td>ありがとう</td>
+                        <td>arigatou</td>
+                        <td>Thank you. (normal)</td>
+                    </tr>
+                    <tr>
+                        <td>ありがとうございます</td>
+                        <td>ありがとうございます</td>
+                        <td>arigatou gozaimasu</td>
+                        <td>Thank you. (formal)</td>
+                    </tr>
+                    <tr>
+                        <td>どういたしまして</td>
+                        <td>どういたしまして</td>
+                        <td>douitashimashite</td>
+                        <td>You're welcome. (normal)</td>
+                    </tr>
+                    <tr>
+                        <td>おはよう</td>
+                        <td>おはよう</td>
+                        <td>ohayou(sounds like "Ohio")</td>
+                        <td>Good morning. (informal)</td>
+                    </tr>
+                    <tr>
+                        <td>おはようございます</td>
+                        <td>おはようございます</td>
+                        <td>ohayou gozaimasu</td>
+                        <td>Good morning.(normal and formal)</td>
+                    </tr>
+                    <tr>
+                        <td>こんにちは</td>
+                        <td>こんにちは</td>
+                        <td>konnichiwa</td>
+                        <td>Hello. (normal)</td>
+                    </tr>
+                    <tr>
+                        <td>こんばんは</td>
+                        <td>こんばんは</td>
+                        <td>konbanwa</td>
+                        <td>Good evening. (normal)</td>
+                    </tr>
+                    <tr>
+                        <td>さよなら</td>
+                        <td>さよなら</td>
+                        <td>sayonara</td>
+                        <td>Goodbye. (normal)</td>
+                    </tr>
+                    <tr>
+                        <td>頑張ってください</td>
+                        <td>がんばってください</td>
+                        <td>gambatte kudasai(can also be written "ganbatte kudasai")</td>
+                        <td>Hang in there</td>
+                    </tr>
+                    <tr>
+                        <td>気をつけてください</td>
+                        <td>きをつけてください</td>
+                        <td>ki o tsukete kudasai(can also be written "ki wo tsukete kudasai")</td>
+                        <td>Be careful, Take care</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div *ngIf="showNumbers===true">
+    <div class="row">
+        <div class="column">
+            <h1>Numbers</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Kanji</th>
+                        <th>Hiragana</th>
+                        <th>Romaji</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>零 / 〇</td>
+                        <td>れい / まる</td>
+                        <td>rei / maru</td>
+                        <td>zero</td>
+                    </tr>
+                    <tr>
+                        <td>一</td>
+                        <td>いち</td>
+                        <td>ichi</td>
+                        <td>one</td>
+                    </tr>
+                    <tr>
+                        <td>二</td>
+                        <td>に</td>
+                        <td>ni</td>
+                        <td>two</td>
+                    </tr>
+                    <tr>
+                        <td>三</td>
+                        <td>さん</td>
+                        <td>san</td>
+                        <td>three</td>
+                    </tr>
+                    <tr>
+                        <td>四</td>
+                        <td>し、 よん</td>
+                        <td>shi (yon after 10)</td>
+                        <td>four</td>
+                    </tr>
+                    <tr>
+                        <td>五</td>
+                        <td>ご</td>
+                        <td>go</td>
+                        <td>five</td>
+                    </tr>
+                    <tr>
+                        <td>六</td>
+                        <td>ろく</td>
+                        <td>roku</td>
+                        <td>six</td>
+                    </tr>
+                    <tr>
+                        <td>七</td>
+                        <td>しち、 なな</td>
+                        <td>shichi (nana after 10)</td>
+                        <td>seven</td>
+                    </tr>
+                    <tr>
+                        <td>八</td>
+                        <td>はち</td>
+                        <td>hachi</td>
+                        <td>eight</td>
+                    </tr>
+                    <tr>
+                        <td>九</td>
+                        <td>く、 きゅう</td>
+                        <td>ku, kyū</td>
+                        <td>nine</td>
+                    </tr>
+                    <tr>
+                        <td>十</td>
+                        <td>じゅう</td>
+                        <td>jū</td>
+                        <td>ten</td>
+                    </tr>
+                    <tr>
+                        <td>百</td>
+                        <td>ひゃく</td>
+                        <td>hyaku</td>
+                        <td>hundred</td>
+                    </tr>
+                    <tr>
+                        <td>千</td>
+                        <td>せん</td>
+                        <td>sen</td>
+                        <td>thousand</td>
+                    </tr>
+                    <tr>
+                        <td>万</td>
+                        <td>まん</td>
+                        <td>man</td>
+                        <td>10,000</td>
+                    </tr>
+                    <tr>
+                        <td>億</td>
+                        <td>おく</td>
+                        <td>oku</td>
+                        <td>100,000,000</td>
+                    </tr>
+                    <tr>
+                        <td>兆</td>
+                        <td>ちょう</td>
+                        <td>chō</td>
+                        <td>1,000,000,000,000</td>
+                    </tr>
+                    <tr>
+                        <td>京</td>
+                        <td>けい</td>
+                        <td>kei</td>
+                        <td>10,000,000,000,000,000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

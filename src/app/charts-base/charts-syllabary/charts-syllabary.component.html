@@ -1,79 +1,264 @@
-<div class="grid-container">
-    <div class="grid-item-blank"></div>
-    <div class="grid-item-blank">W</div>
-    <div class="grid-item-blank">R</div>
-    <div class="grid-item-blank">Y</div>
-    <div class="grid-item-blank">M</div>
-    <div class="grid-item-blank">H</div>
-    <div class="grid-item-blank">N</div>
-    <div class="grid-item-blank">T</div>
-    <div class="grid-item-blank">S</div>
-    <div class="grid-item-blank">K</div>
-    <div class="grid-item-blank">*</div>
-    <div class="grid-item-blank"></div>
-    
-    <div class="grid-item-blank"></div>
-    <div class="grid-item"><div>わ</div>wa</div>
-    <div class="grid-item"><div>ら</div><div>ra</div></div>
-    <div class="grid-item"><div>や</div><div>ya</div></div>
-    <div class="grid-item"><div>ま</div><div>ma</div></div>
-    <div class="grid-item"><div>は</div><div>ha</div></div>
-    <div class="grid-item"><div>な</div><div>na</div></div>
-    <div class="grid-item"><div>た</div><div>ta</div></div>
-    <div class="grid-item"><div>さ</div><div>sa</div></div>
-    <div class="grid-item"><div>か</div><div>ka</div></div>
-    <div class="grid-item"><div>あ</div><div>a</div></div>
-    <div class="grid-item-blank">A</div>
+<div>
+    <input
+    type="checkbox"
+    [(ngModel)]="showDakuten" />
+    <label>Show Dakuten ゛</label>
+    <input
+        type="checkbox"
+        [(ngModel)]="showHandakuten" />
+    <label>Show Handakuten ゜</label>
+    <input
+        type="checkbox"
+        [(ngModel)]="showRomanji" />
+    <label>Show Romanji</label>
+</div>
+<div>
+    <input
+    type="checkbox"
+    [(ngModel)]="showHiragana" />
+    <label>Show Hiragana</label>
+    <input
+    type="checkbox"
+    [(ngModel)]="showKatakana" />
+    <label>Show Katakana</label>
+    <input
+    type="checkbox"
+    [(ngModel)]="showKanji" />
+    <label>Show Kanji</label>
+</div>
 
-    <div class="grid-item-blank"></div>
-    <div class="grid-item-blank"></div>
-    <div class="grid-item"><div>り</div><div>ri</div></div>
-    <div class="grid-item-blank"></div>
-    <div class="grid-item"><div>み</div><div>mi</div></div>
-    <div class="grid-item"><div>ひ</div><div>hi</div></div>
-    <div class="grid-item"><div>に</div><div>ni</div></div>
-    <div class="grid-item"><div>ち</div><div>chi</div></div>
-    <div class="grid-item"><div>し</div><div>shi</div></div>
-    <div class="grid-item"><div>き</div><div>ki</div></div>
-    <div class="grid-item"><div>い</div><div>i</div></div>
-    <div class="grid-item-blank">I</div>
+<hr/>
 
-    <div class="grid-item"><div>ん</div>n/m/ng</div>
-    <div class="grid-item-blank"></div>
-    <div class="grid-item"><div>る</div><div>ru</div></div>
-    <div class="grid-item"><div>ゆ</div><div>yu</div></div>
-    <div class="grid-item"><div>む</div><div>mu</div></div>
-    <div class="grid-item"><div>ふ</div><div>fu</div></div>
-    <div class="grid-item"><div>ぬ</div><div>nu</div></div>
-    <div class="grid-item"><div>つ</div><div>tsu</div></div>
-    <div class="grid-item"><div>す</div><div>su</div></div>
-    <div class="grid-item"><div>く</div><div>ku</div></div>
-    <div class="grid-item"><div>う</div><div>u</div></div>
-    <div class="grid-item-blank">U</div>
+<div *ngIf="showHiragana===true">
+    <h1>Hiragana - ひらがな</h1>
+    <div [ngClass]="{'grid-container' : !showDakuten&&!showHandakuten,
+        'grid-container-handakuten' : !showDakuten&&showHandakuten,
+        'grid-container-dakuten' : showDakuten&&!showHandakuten,
+        'grid-container-daku-han' : showDakuten&&showHandakuten}">
+        <div class="grid-item-blank"></div>
+        <div class="grid-item-blank">W</div>
+        <div class="grid-item-blank">R</div>
+        <div class="grid-item-blank">Y</div>
+        <div class="grid-item-blank">M</div>
+        <div *ngIf="showHandakuten===true" class="grid-item-blank">P</div>
+        <div *ngIf="showDakuten===true" class="grid-item-blank">B</div>
+        <div class="grid-item-blank">H</div>
+        <div class="grid-item-blank">N</div>
+        <div *ngIf="showDakuten===true" class="grid-item-blank">D</div>
+        <div class="grid-item-blank">T</div>
+        <div *ngIf="showDakuten===true" class="grid-item-blank">Z</div>
+        <div class="grid-item-blank">S</div>
+        <div *ngIf="showDakuten===true" class="grid-item-blank">G</div>
+        <div class="grid-item-blank">K</div>
+        <div class="grid-item-blank">*</div>
+        <div class="grid-item-blank"></div>
+        
+        <div class="grid-item-blank"></div>
+        <div class="grid-item"><div>わ</div><div *ngIf="showRomanji===true">wa</div></div>
+        <div class="grid-item"><div>ら</div><div *ngIf="showRomanji===true">ra</div></div>
+        <div class="grid-item"><div>や</div><div *ngIf="showRomanji===true">ya</div></div>
+        <div class="grid-item"><div>ま</div><div *ngIf="showRomanji===true">ma</div></div>
+        <div *ngIf="showHandakuten===true" class="grid-item"><div>ぱ</div><div *ngIf="showRomanji===true">pa</div></div>
+        <div *ngIf="showDakuten===true" class="grid-item"><div>ば</div><div *ngIf="showRomanji===true">ba</div></div>
+        <div class="grid-item"><div>は</div><div *ngIf="showRomanji===true">ha</div></div>
+        <div class="grid-item"><div>な</div><div *ngIf="showRomanji===true">na</div></div>
+        <div *ngIf="showDakuten===true" class="grid-item"><div>だ</div><div *ngIf="showRomanji===true">da</div></div>
+        <div class="grid-item"><div>た</div><div *ngIf="showRomanji===true">ta</div></div>
+        <div *ngIf="showDakuten===true" class="grid-item"><div>ざ</div><div *ngIf="showRomanji===true">za</div></div>
+        <div class="grid-item"><div>さ</div><div *ngIf="showRomanji===true">sa</div></div>
+        <div *ngIf="showDakuten===true" class="grid-item"><div>が</div><div *ngIf="showRomanji===true">ga</div></div>
+        <div class="grid-item"><div>か</div><div *ngIf="showRomanji===true">ka</div></div>
+        <div class="grid-item"><div>あ</div><div *ngIf="showRomanji===true">a</div></div>
+        <div class="grid-item-blank">A</div>
 
-    <div class="grid-item-blank"></div>
-    <div class="grid-item-blank"></div>
-    <div class="grid-item"><div>れ</div><div>re</div></div>
-    <div class="grid-item-blank"></div>
-    <div class="grid-item"><div>め</div><div>me</div></div>
-    <div class="grid-item"><div>へ</div><div>he</div></div>
-    <div class="grid-item"><div>ね</div><div>ne</div></div>
-    <div class="grid-item"><div>て</div><div>te</div></div>
-    <div class="grid-item"><div>せ</div><div>se</div></div>
-    <div class="grid-item"><div>け</div><div>ke</div></div>
-    <div class="grid-item"><div>え</div><div>e</div></div>
-    <div class="grid-item-blank">E</div>
+        <div class="grid-item-blank"></div>
+        <div class="grid-item-blank"></div>
+        <div class="grid-item"><div>り</div><div *ngIf="showRomanji===true">ri</div></div>
+        <div class="grid-item-blank"></div>
+        <div class="grid-item"><div>み</div><div *ngIf="showRomanji===true">mi</div></div>
+        <div *ngIf="showHandakuten===true" class="grid-item"><div>ぴ</div><div *ngIf="showRomanji===true">pi</div></div>
+        <div *ngIf="showDakuten===true" class="grid-item"><div>び</div><div *ngIf="showRomanji===true">bi</div></div>
+        <div class="grid-item"><div>ひ</div><div *ngIf="showRomanji===true">hi</div></div>
+        <div class="grid-item"><div>に</div><div *ngIf="showRomanji===true">ni</div></div>
+        <div *ngIf="showDakuten===true" class="grid-item"><div>ぢ</div><div *ngIf="showRomanji===true">ji</div></div>
+        <div class="grid-item"><div>ち</div><div *ngIf="showRomanji===true">chi</div></div>
+        <div *ngIf="showDakuten===true" class="grid-item"><div>じ</div><div *ngIf="showRomanji===true">ji</div></div>
+        <div class="grid-item"><div>し</div><div *ngIf="showRomanji===true">shi</div></div>
+        <div *ngIf="showDakuten===true" class="grid-item"><div>ぎ</div><div *ngIf="showRomanji===true">gi</div></div>
+        <div class="grid-item"><div>き</div><div *ngIf="showRomanji===true">ki</div></div>
+        <div class="grid-item"><div>い</div><div *ngIf="showRomanji===true">i</div></div>
+        <div class="grid-item-blank">I</div>
 
-    <div class="grid-item-blank"></div>
-    <div class="grid-item"><div>を</div><div>wo/o</div></div>
-    <div class="grid-item"><div>ろ</div><div>ro</div></div>
-    <div class="grid-item"><div>よ</div><div>yo</div></div>
-    <div class="grid-item"><div>も</div><div>mo</div></div>
-    <div class="grid-item"><div>ほ</div><div>ho</div></div>
-    <div class="grid-item"><div>の</div><div>no</div></div>
-    <div class="grid-item"><div>と</div><div>to</div></div>
-    <div class="grid-item"><div>そ</div><div>so</div></div>
-    <div class="grid-item"><div>こ</div><div>ko</div></div>
-    <div class="grid-item"><div>お</div><div>o</div></div>
-    <div class="grid-item-blank">O</div>
+        <div class="grid-item"><div>ん</div><div *ngIf="showRomanji===true">n/m/ng</div></div>
+        <div class="grid-item-blank"></div>
+        <div class="grid-item"><div>る</div><div *ngIf="showRomanji===true">ru</div></div>
+        <div class="grid-item"><div>ゆ</div><div *ngIf="showRomanji===true">yu</div></div>
+        <div class="grid-item"><div>む</div><div *ngIf="showRomanji===true">mu</div></div>
+        <div *ngIf="showHandakuten===true" class="grid-item"><div>ぷ</div><div *ngIf="showRomanji===true">pu</div></div>
+        <div *ngIf="showDakuten===true" class="grid-item"><div>ぶ</div><div *ngIf="showRomanji===true">bu</div></div>
+        <div class="grid-item"><div>ふ</div><div *ngIf="showRomanji===true">fu</div></div>
+        <div class="grid-item"><div>ぬ</div><div *ngIf="showRomanji===true">nu</div></div>
+        <div *ngIf="showDakuten===true" class="grid-item"><div>づ</div><div *ngIf="showRomanji===true">zu</div></div>
+        <div class="grid-item"><div>つ</div><div *ngIf="showRomanji===true">tsu</div></div>
+        <div *ngIf="showDakuten===true" class="grid-item"><div>ず</div><div *ngIf="showRomanji===true">zu</div></div>
+        <div class="grid-item"><div>す</div><div *ngIf="showRomanji===true">su</div></div>
+        <div *ngIf="showDakuten===true" class="grid-item"><div>ぐ</div><div *ngIf="showRomanji===true">gu</div></div>
+        <div class="grid-item"><div>く</div><div *ngIf="showRomanji===true">ku</div></div>
+        <div class="grid-item"><div>う</div><div *ngIf="showRomanji===true">u</div></div>
+        <div class="grid-item-blank">U</div>
+
+        <div class="grid-item-blank"></div>
+        <div class="grid-item-blank"></div>
+        <div class="grid-item"><div>れ</div><div *ngIf="showRomanji===true">re</div></div>
+        <div class="grid-item-blank"></div>
+        <div class="grid-item"><div>め</div><div *ngIf="showRomanji===true">me</div></div>
+        <div *ngIf="showHandakuten===true" class="grid-item"><div>ぺ</div><div *ngIf="showRomanji===true">pe</div></div>
+        <div *ngIf="showDakuten===true" class="grid-item"><div>べ</div><div *ngIf="showRomanji===true">be</div></div>
+        <div class="grid-item"><div>へ</div><div *ngIf="showRomanji===true">he</div></div>
+        <div class="grid-item"><div>ね</div><div *ngIf="showRomanji===true">ne</div></div>
+        <div *ngIf="showDakuten===true" class="grid-item"><div>で</div><div *ngIf="showRomanji===true">de</div></div>
+        <div class="grid-item"><div>て</div><div *ngIf="showRomanji===true">te</div></div>
+        <div *ngIf="showDakuten===true" class="grid-item"><div>ぜ</div><div *ngIf="showRomanji===true">ze</div></div>
+        <div class="grid-item"><div>せ</div><div *ngIf="showRomanji===true">se</div></div>
+        <div *ngIf="showDakuten===true" class="grid-item"><div>げ</div><div *ngIf="showRomanji===true">ge</div></div>
+        <div class="grid-item"><div>け</div><div *ngIf="showRomanji===true">ke</div></div>
+        <div class="grid-item"><div>え</div><div *ngIf="showRomanji===true">e</div></div>
+        <div class="grid-item-blank">E</div>
+
+        <div class="grid-item-blank"></div>
+        <div class="grid-item"><div>を</div><div *ngIf="showRomanji===true">wo/o</div></div>
+        <div class="grid-item"><div>ろ</div><div *ngIf="showRomanji===true">ro</div></div>
+        <div class="grid-item"><div>よ</div><div *ngIf="showRomanji===true">yo</div></div>
+        <div class="grid-item"><div>も</div><div *ngIf="showRomanji===true">mo</div></div>
+        <div *ngIf="showHandakuten===true" class="grid-item"><div>ぽ</div><div *ngIf="showRomanji===true">po</div></div>
+        <div *ngIf="showDakuten===true" class="grid-item"><div>ぼ</div><div *ngIf="showRomanji===true">bo</div></div>
+        <div class="grid-item"><div>ほ</div><div *ngIf="showRomanji===true">ho</div></div>
+        <div class="grid-item"><div>の</div><div *ngIf="showRomanji===true">no</div></div>
+        <div *ngIf="showDakuten===true" class="grid-item"><div>ど</div><div *ngIf="showRomanji===true">do</div></div>
+        <div class="grid-item"><div>と</div><div *ngIf="showRomanji===true">to</div></div>
+        <div *ngIf="showDakuten===true" class="grid-item"><div>ぞ</div><div *ngIf="showRomanji===true">zo</div></div>
+        <div class="grid-item"><div>そ</div><div *ngIf="showRomanji===true">so</div></div>
+        <div *ngIf="showDakuten===true" class="grid-item"><div>ご</div><div *ngIf="showRomanji===true">go</div></div>
+        <div class="grid-item"><div>こ</div><div *ngIf="showRomanji===true">ko</div></div>
+        <div class="grid-item"><div>お</div><div *ngIf="showRomanji===true">o</div></div>
+        <div class="grid-item-blank">O</div>
+    </div>
+</div>
+<div *ngIf="showKatakana===true">
+    <h1>Katakana - カタカナ</h1>
+    <div [ngClass]="{'grid-container' : !showDakuten&&!showHandakuten,
+        'grid-container-handakuten' : !showDakuten&&showHandakuten,
+        'grid-container-dakuten' : showDakuten&&!showHandakuten,
+        'grid-container-daku-han' : showDakuten&&showHandakuten}">
+        <div class="grid-item-blank"></div>
+        <div class="grid-item-blank">W</div>
+        <div class="grid-item-blank">R</div>
+        <div class="grid-item-blank">Y</div>
+        <div class="grid-item-blank">M</div>
+        <div *ngIf="showHandakuten===true" class="grid-item-blank">P</div>
+        <div *ngIf="showDakuten===true" class="grid-item-blank">B</div>
+        <div class="grid-item-blank">H</div>
+        <div class="grid-item-blank">N</div>
+        <div *ngIf="showDakuten===true" class="grid-item-blank">D</div>
+        <div class="grid-item-blank">T</div>
+        <div *ngIf="showDakuten===true" class="grid-item-blank">Z</div>
+        <div class="grid-item-blank">S</div>
+        <div *ngIf="showDakuten===true" class="grid-item-blank">G</div>
+        <div class="grid-item-blank">K</div>
+        <div class="grid-item-blank">*</div>
+        <div class="grid-item-blank"></div>
+        
+        <div class="grid-item-blank"></div>
+        <div class="grid-item"><div>ワ</div><div *ngIf="showRomanji===true">wa</div></div>
+        <div class="grid-item"><div>ラ</div><div *ngIf="showRomanji===true">ra</div></div>
+        <div class="grid-item"><div>ヤ</div><div *ngIf="showRomanji===true">ya</div></div>
+        <div class="grid-item"><div>マ</div><div *ngIf="showRomanji===true">ma</div></div>
+        <div *ngIf="showHandakuten===true" class="grid-item"><div>パ</div><div *ngIf="showRomanji===true">pa</div></div>
+        <div *ngIf="showDakuten===true" class="grid-item"><div>バ</div><div *ngIf="showRomanji===true">ba</div></div>
+        <div class="grid-item"><div>ハ</div><div *ngIf="showRomanji===true">ha</div></div>
+        <div class="grid-item"><div>ナ</div><div *ngIf="showRomanji===true">na</div></div>
+        <div *ngIf="showDakuten===true" class="grid-item"><div>ダ</div><div *ngIf="showRomanji===true">da</div></div>
+        <div class="grid-item"><div>タ</div><div *ngIf="showRomanji===true">ta</div></div>
+        <div *ngIf="showDakuten===true" class="grid-item"><div>ザ</div><div *ngIf="showRomanji===true">za</div></div>
+        <div class="grid-item"><div>サ</div><div *ngIf="showRomanji===true">sa</div></div>
+        <div *ngIf="showDakuten===true" class="grid-item"><div>ガ</div><div *ngIf="showRomanji===true">ga</div></div>
+        <div class="grid-item"><div>カ</div><div *ngIf="showRomanji===true">ka</div></div>
+        <div class="grid-item"><div>ア</div><div *ngIf="showRomanji===true">a</div></div>
+        <div class="grid-item-blank">A</div>
+
+        <div class="grid-item-blank"></div>
+        <div class="grid-item-blank"></div>
+        <div class="grid-item"><div>リ</div><div *ngIf="showRomanji===true">ri</div></div>
+        <div class="grid-item-blank"></div>
+        <div class="grid-item"><div>ミ</div><div *ngIf="showRomanji===true">mi</div></div>
+        <div *ngIf="showHandakuten===true" class="grid-item"><div>ピ</div><div *ngIf="showRomanji===true">pi</div></div>
+        <div *ngIf="showDakuten===true" class="grid-item"><div>ビ</div><div *ngIf="showRomanji===true">bi</div></div>
+        <div class="grid-item"><div>ヒ</div><div *ngIf="showRomanji===true">hi</div></div>
+        <div class="grid-item"><div>ニ</div><div *ngIf="showRomanji===true">ni</div></div>
+        <div *ngIf="showDakuten===true" class="grid-item"><div>ヂ</div><div *ngIf="showRomanji===true">ji</div></div>
+        <div class="grid-item"><div>チ</div><div *ngIf="showRomanji===true">chi</div></div>
+        <div *ngIf="showDakuten===true" class="grid-item"><div>ジ</div><div *ngIf="showRomanji===true">ji</div></div>
+        <div class="grid-item"><div>シ</div><div *ngIf="showRomanji===true">shi</div></div>
+        <div *ngIf="showDakuten===true" class="grid-item"><div>ギ</div><div *ngIf="showRomanji===true">gi</div></div>
+        <div class="grid-item"><div>キ</div><div *ngIf="showRomanji===true">ki</div></div>
+        <div class="grid-item"><div>イ</div><div *ngIf="showRomanji===true">i</div></div>
+        <div class="grid-item-blank">I</div>
+
+        <div class="grid-item"><div>ン</div><div *ngIf="showRomanji===true">n/m/ng</div></div>
+        <div class="grid-item-blank"></div>
+        <div class="grid-item"><div>ル</div><div *ngIf="showRomanji===true">ru</div></div>
+        <div class="grid-item"><div>ユ</div><div *ngIf="showRomanji===true">yu</div></div>
+        <div class="grid-item"><div>ム</div><div *ngIf="showRomanji===true">mu</div></div>
+        <div *ngIf="showHandakuten===true" class="grid-item"><div>プ</div><div *ngIf="showRomanji===true">pu</div></div>
+        <div *ngIf="showDakuten===true" class="grid-item"><div>ブ</div><div *ngIf="showRomanji===true">bu</div></div>
+        <div class="grid-item"><div>フ</div><div *ngIf="showRomanji===true">fu</div></div>
+        <div class="grid-item"><div>ヌ</div><div *ngIf="showRomanji===true">nu</div></div>
+        <div *ngIf="showDakuten===true" class="grid-item"><div>ヅ</div><div *ngIf="showRomanji===true">zu</div></div>
+        <div class="grid-item"><div>ツ</div><div *ngIf="showRomanji===true">tsu</div></div>
+        <div *ngIf="showDakuten===true" class="grid-item"><div>ズ</div><div *ngIf="showRomanji===true">zu</div></div>
+        <div class="grid-item"><div>ス</div><div *ngIf="showRomanji===true">su</div></div>
+        <div *ngIf="showDakuten===true" class="grid-item"><div>グ</div><div *ngIf="showRomanji===true">gu</div></div>
+        <div class="grid-item"><div>ク</div><div *ngIf="showRomanji===true">ku</div></div>
+        <div class="grid-item"><div>ウ</div><div *ngIf="showRomanji===true">u</div></div>
+        <div class="grid-item-blank">U</div>
+
+        <div class="grid-item-blank"></div>
+        <div class="grid-item-blank"></div>
+        <div class="grid-item"><div>レ</div><div *ngIf="showRomanji===true">re</div></div>
+        <div class="grid-item-blank"></div>
+        <div class="grid-item"><div>メ</div><div *ngIf="showRomanji===true">me</div></div>
+        <div *ngIf="showHandakuten===true" class="grid-item"><div>ペ</div><div *ngIf="showRomanji===true">pe</div></div>
+        <div *ngIf="showDakuten===true" class="grid-item"><div>ベ</div><div *ngIf="showRomanji===true">be</div></div>
+        <div class="grid-item"><div>ヘ</div><div *ngIf="showRomanji===true">he</div></div>
+        <div class="grid-item"><div>ネ</div><div *ngIf="showRomanji===true">ne</div></div>
+        <div *ngIf="showDakuten===true" class="grid-item"><div>デ</div><div *ngIf="showRomanji===true">de</div></div>
+        <div class="grid-item"><div>テ</div><div *ngIf="showRomanji===true">te</div></div>
+        <div *ngIf="showDakuten===true" class="grid-item"><div>ゼ</div><div *ngIf="showRomanji===true">ze</div></div>
+        <div class="grid-item"><div>セ</div><div *ngIf="showRomanji===true">se</div></div>
+        <div *ngIf="showDakuten===true" class="grid-item"><div>ゲ</div><div *ngIf="showRomanji===true">ge</div></div>
+        <div class="grid-item"><div>ケ</div><div *ngIf="showRomanji===true">ke</div></div>
+        <div class="grid-item"><div>エ</div><div *ngIf="showRomanji===true">e</div></div>
+        <div class="grid-item-blank">E</div>
+
+        <div class="grid-item-blank"></div>
+        <div class="grid-item"><div>ヲ</div><div *ngIf="showRomanji===true">wo/o</div></div>
+        <div class="grid-item"><div>ロ</div><div *ngIf="showRomanji===true">ro</div></div>
+        <div class="grid-item"><div>ヨ</div><div *ngIf="showRomanji===true">yo</div></div>
+        <div class="grid-item"><div>モ</div><div *ngIf="showRomanji===true">mo</div></div>
+        <div *ngIf="showHandakuten===true" class="grid-item"><div>ポ</div><div *ngIf="showRomanji===true">po</div></div>
+        <div *ngIf="showDakuten===true" class="grid-item"><div>ボ</div><div *ngIf="showRomanji===true">bo</div></div>
+        <div class="grid-item"><div>ホ</div><div *ngIf="showRomanji===true">ho</div></div>
+        <div class="grid-item"><div>ノ</div><div *ngIf="showRomanji===true">no</div></div>
+        <div *ngIf="showDakuten===true" class="grid-item"><div>ド</div><div *ngIf="showRomanji===true">do</div></div>
+        <div class="grid-item"><div>ト</div><div *ngIf="showRomanji===true">to</div></div>
+        <div *ngIf="showDakuten===true" class="grid-item"><div>ゾ</div><div *ngIf="showRomanji===true">zo</div></div>
+        <div class="grid-item"><div>ソ</div><div *ngIf="showRomanji===true">so</div></div>
+        <div *ngIf="showDakuten===true" class="grid-item"><div>ゴ</div><div *ngIf="showRomanji===true">go</div></div>
+        <div class="grid-item"><div>コ</div><div *ngIf="showRomanji===true">ko</div></div>
+        <div class="grid-item"><div>オ</div><div *ngIf="showRomanji===true">o</div></div>
+        <div class="grid-item-blank">O</div>
+    </div>
+</div>
+<div *ngIf="showKanji===true">
+    <h1>Kanji - 漢字</h1>
 </div>

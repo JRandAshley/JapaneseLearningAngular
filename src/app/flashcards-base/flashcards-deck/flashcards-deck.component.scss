@@ -1,0 +1,13 @@
+.deck-board{
+    display: flex;
+    outline-color: red;
+    outline-style: solid;
+}
+
+.row{
+    display: flex;
+}
+.column{
+    display: flex;
+    flex-direction: column;
+}

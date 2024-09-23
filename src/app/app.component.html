@@ -13,7 +13,7 @@
 <main class="main">
   <div class="content">
     <div class="left-side">
-      <h1 class="title" [innerHTML]="title"></h1>
+      <a routerLink=""><h1 class="title" [innerHTML]="title"></h1></a>
       <hr />
       <div class="activity-section">
         <router-outlet />
@@ -22,11 +22,15 @@
     <div class="right-side">
       <div class="pill-group">
         @for (item of [
-          { title: 'Helpful Charts', link: '/charts' },
+          { title: 'Syllabary', link: '/syllabary' },
+          { title: 'Charts', link: '/charts' },
           { title: 'Flash Cards', link: '/flashcards' },
-          { title: 'Exercises', link: 'https://angular.dev/tools/cli' },
-          { title: 'Test Route', link: '/testing' },
-          { title: 'Coming Soon', link: 'https://angular.dev/tools/devtools' },
+          { title: 'Exercises', link: '/exercises' },
+          { title: 'Coming Soon', link: '/danjgajnag' },
+          { title: 'Coming Soon', link: '/danjgajnag' },
+          { title: 'Coming Soon', link: '/danjgajnag' },
+          { title: 'Coming Soon', link: '/danjgajnag' },
+          { title: 'Coming Soon', link: '/danjgajnag' },
         ]; track item.title) {
           <a
             class="pill"

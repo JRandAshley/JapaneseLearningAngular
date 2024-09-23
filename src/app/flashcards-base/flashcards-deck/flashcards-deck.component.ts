@@ -52,7 +52,6 @@ export class FlashcardsDeckComponent implements OnInit {
   }];
 
   ngOnInit(): void {
-    //console.log("on init");
   }
 
   setCurrentCardTo(cardIndex: number){

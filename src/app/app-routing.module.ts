@@ -8,9 +8,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AppComponent } from './app.component';
 
 const routes: Routes = [
-  { path: 'charts', component: ChartsSyllabaryComponent },
+  { path: 'syllabary', component: ChartsSyllabaryComponent },
   { path: 'flashcards', component: FlashcardsDeckComponent },
-  { path: 'testing', component: ChartsIndexComponent},
+  { path: 'charts', component: ChartsIndexComponent},
   { path: '', component: DefaultHomePageComponent},
   { path: '**', component: PageNotFoundComponent}
 ];

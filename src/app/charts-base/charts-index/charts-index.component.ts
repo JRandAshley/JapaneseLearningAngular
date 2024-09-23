@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrl: './charts-index.component.scss'
 })
 export class ChartsIndexComponent {
-  
+  showTermsAndPhrases: boolean = true;
+  showNumbers: boolean = true;
 }

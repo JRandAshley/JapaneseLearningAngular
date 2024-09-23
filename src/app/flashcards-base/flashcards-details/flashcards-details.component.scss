@@ -1,0 +1,22 @@
+$card-height: 300px;
+$card-width: 200px;
+
+.card{
+    display: flex;
+    border-style: solid;
+    border-radius: 25px;
+    background-color: lightgray;
+    justify-content: center;
+    align-items: center;
+    height: $card-height;
+    width: $card-width;
+}
+.flip-button{
+    background-color: lightblue;
+}
+.correct-button{
+    background-color: lime;
+}
+.incorrect-button{
+    background-color: red;
+}

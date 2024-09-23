@@ -30,6 +30,19 @@ $red-to-pink-to-purple-horizontal-gradient: linear-gradient(
     $electric-violet 100%
 );
 
+$red: #f11653;
+$light-red: color-mix(in srgb, $red 5%, transparent);
+$orange: #FF8C00;
+$light-orange: color-mix(in srgb, $orange 5%, transparent);
+$yellow: #ffd900;
+$light-yellow: color-mix(in srgb, $yellow 5%, transparent);
+$green: #008026;
+$light-green: color-mix(in srgb, $green 5%, transparent);
+$blue: #0546ff;
+$light-blue: color-mix(in srgb, $blue 5%, transparent);
+$violet: #8001c6;
+$light-violet: color-mix(in srgb, $violet 5%, transparent);
+
 $pill-accent: $bright-blue;
 $pill-accent-light: color-mix(in srgb, $pill-accent 5%, transparent);
 
@@ -45,10 +58,6 @@ main {
     position: relative;
 }
 
-.title {
-    color: rgb(255, 0, 102);
-}
-
 .content {
     display: flex;
     justify-content: space-between;
@@ -57,12 +66,12 @@ main {
     margin-bottom: 3rem;
 }
 
-.content h1 {
-    margin-top: 1.75rem;
-}
-
-.content p {
-    margin-top: 1.5rem;
+.title {
+    display: inline-flex;
+    background: $red-to-pink-to-purple-horizontal-gradient;
+    -webkit-background-clip: text;
+            background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .divider {
@@ -74,13 +83,15 @@ main {
 .pill-group {
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: end;
     flex-wrap: wrap;
     gap: 1.25rem;
+    margin-right: 0.5rem;
 }
 
 .pill {
     display: flex;
+    width: 100%;
     align-items: center;
     background: color-mix(in srgb, $pill-accent-light, transparent);
     color: $pill-accent;
@@ -97,38 +108,80 @@ main {
     text-decoration: none;
 }
 
-.pill-group .pill:nth-child(6n + 1) {
-    background: $bright-blue-light;
-    color: $bright-blue;
+.pill-group .pill:nth-child(6n-5) {
+    background: $light-red;
+    color: $red;
 }
-.pill-group .pill:nth-child(6n + 1):hover {
-    background: color-mix(in srgb, $bright-blue 15%, transparent);
+.pill-group .pill:nth-child(6n-5):hover {
+    background: color-mix(in srgb, $red 15%, transparent);
 }
-.pill-group .pill:nth-child(6n + 2) {
-    background: $french-violet-light;
-    color: $french-violet;
+.pill-group .pill:nth-child(6n-4) {
+    background: $light-orange;
+    color: $orange;
 }
-.pill-group .pill:nth-child(6n + 2):hover {
-    background: color-mix(in srgb, $french-violet 15%, transparent);
+.pill-group .pill:nth-child(6n-4):hover {
+    background: color-mix(in srgb, $orange 15%, transparent);
 }
-.pill-group .pill:nth-child(6n + 3),
-.pill-group .pill:nth-child(6n + 4),
-.pill-group .pill:nth-child(6n + 5) {
-    background: $hot-red-light;
-    color: $hot-red;
+.pill-group .pill:nth-child(6n-3) {
+    background: $light-yellow;
+    color: $yellow;
 }
-.pill-group .pill:nth-child(6n + 3):hover,
-.pill-group .pill:nth-child(6n + 4):hover,
-.pill-group .pill:nth-child(6n + 5):hover {
-    background: color-mix(in srgb, $hot-red 15%, transparent);
+.pill-group .pill:nth-child(6n-3):hover {
+    background: color-mix(in srgb, $yellow 15%, transparent);
 }
+.pill-group .pill:nth-child(6n-2) {
+    background: $light-green;
+    color: $green;
+}
+.pill-group .pill:nth-child(6n-2):hover {
+    background: color-mix(in srgb, $green 15%, transparent);
+}
+.pill-group .pill:nth-child(6n-1) {
+    background: $light-blue;
+    color: $blue;
+}
+.pill-group .pill:nth-child(6n-1):hover {
+    background: color-mix(in srgb, $blue 15%, transparent);
+}
+.pill-group .pill:nth-child(6n) {
+    background: $light-violet;
+    color: $violet;
+}
+.pill-group .pill:nth-child(6n):hover {
+    background: color-mix(in srgb, $violet 15%, transparent);
+}
+
+// .pill-group .pill:nth-child(6n + 1) {
+//     background: $bright-blue-light;
+//     color: $bright-blue;
+// }
+// .pill-group .pill:nth-child(6n + 1):hover {
+//     background: color-mix(in srgb, $bright-blue 15%, transparent);
+// }
+// .pill-group .pill:nth-child(6n + 2) {
+//     background: $french-violet-light;
+//     color: $french-violet;
+// }
+// .pill-group .pill:nth-child(6n + 2):hover {
+//     background: color-mix(in srgb, $french-violet 15%, transparent);
+// }
+// .pill-group .pill:nth-child(6n + 3),
+// .pill-group .pill:nth-child(6n + 4),
+// .pill-group .pill:nth-child(6n + 5) {
+//     background: $hot-red-light;
+//     color: $hot-red;
+// }
+// .pill-group .pill:nth-child(6n + 3):hover,
+// .pill-group .pill:nth-child(6n + 4):hover,
+// .pill-group .pill:nth-child(6n + 5):hover {
+//     background: color-mix(in srgb, $hot-red 15%, transparent);
+// }
 
 .pill-group svg {
     margin-inline-start: 0.25rem;
 }
 
 .activity-section {
-    // background: $red-to-pink-to-purple-horizontal-gradient;
     width: 100%;
     margin-block: 1.5rem;
     }
