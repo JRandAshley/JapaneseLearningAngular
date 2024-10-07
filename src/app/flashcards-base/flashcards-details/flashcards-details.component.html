@@ -1,13 +1,45 @@
 <div class="card">
-        <div *ngIf="isFlipped === false">
-                <h1>{{detail.frontSideA}}</h1>
-                <h2>{{detail.frontSideB}}</h2>
-                <button class="flip-button" (click)="flipCard()">Flip</button>
+        <div class="column">
+                <div>
+                        <div *ngIf="japSide===true">
+                                <h1 *ngIf="detail.japKanji!=''" class="card-line">{{detail.japKanji}}</h1>
+                                <h2 class="card-line">{{detail.japHiraKata}}</h2>
+                                <h3 class="card-line">{{detail.japRomanji}}</h3>
+                                <p class="notes" *ngIf="isFlipped===true && detail.japNotes!=''">{{detail.japNotes}}</p>
+                        </div>
+                        <div *ngIf="japSide===false">
+                                <h2 class="card-line">{{detail.english}}</h2>
+                                <h2 *ngIf="detail.example!=''" class="card-line">{{detail.example}}</h2>
+                                <p class="notes" *ngIf="isFlipped===true && detail.engNotes!=''">{{detail.engNotes}}</p>
+                        </div>
+                </div>
+                <div>
+                        <div *ngIf="isFlipped === false">
+                                <div class="card-line"><button class="flip-button" (click)="flipCard()">Flip</button></div>
+                        </div>
+                        <div *ngIf="isFlipped === true">
+                                <div class="card-line">
+                                        <button class="correct-button" (click)="correct()">Y</button>
+                                        <div class="button-spacer"></div>
+                                        <button class="incorrect-button" (click)="incorrect()">X</button>
+                                </div>
+                        </div>
+                </div>
+        </div>
+
+        <!-- <div *ngIf="isFlipped === false">
+                <h1 *ngIf="detail.japKanji!=''" class="card-line">{{detail.japKanji}}</h1>
+                <h2 class="card-line">{{detail.japHiraKata}}</h2>
+                <p class="card-line">{{detail.japRomanji}}</p>
+                <div class="card-line"><button class="flip-button" (click)="flipCard()">Flip</button></div>
         </div>
         <div *ngIf="isFlipped === true">
-                <h1>{{detail.backSideA}}</h1>
-                <h2>{{detail.backSideB}}</h2>
-                <button class="correct-button" (click)="correct()">Y</button>
-                <button class="incorrect-button" (click)="incorrect()">X</button>
-        </div>
+                <h2 class="card-line">{{detail.english}}</h2>
+                <h2 *ngIf="detail.example!=''" class="card-line">{{detail.example}}</h2>
+                <div class="card-line">
+                        <button class="correct-button" (click)="correct()">Y</button>
+                        <div class="button-spacer"></div>
+                        <button class="incorrect-button" (click)="incorrect()">X</button>
+                </div>
+        </div> -->
 </div>

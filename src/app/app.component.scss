@@ -66,8 +66,33 @@ main {
     margin-bottom: 3rem;
 }
 
+.row{
+    display: flex;
+}
+.column{
+    display: flex;
+    flex-direction: column;
+}
+.left-side {
+    width: 100%;
+}
+.right-side {
+    // display: inline-flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 20px;
+    min-width: 150px;
+}
+.right-side-filler {
+    margin: 20px;
+    min-width: 150px;
+    visibility: hidden;
+}
+
 .title {
-    display: inline-flex;
+    // display: inline-flex;
+    width: 100%;
     background: $red-to-pink-to-purple-horizontal-gradient;
     -webkit-background-clip: text;
             background-clip: text;
@@ -75,9 +100,10 @@ main {
 }
 
 .divider {
-    width: 1px;
+    width: 2px;
+    min-width: 2px;
     background: $red-to-pink-to-purple-vertical-gradient;
-    margin-inline: 0.5rem;
+    margin-inline: 5px;
 }
 
 .pill-group {
@@ -150,32 +176,6 @@ main {
 .pill-group .pill:nth-child(6n):hover {
     background: color-mix(in srgb, $violet 15%, transparent);
 }
-
-// .pill-group .pill:nth-child(6n + 1) {
-//     background: $bright-blue-light;
-//     color: $bright-blue;
-// }
-// .pill-group .pill:nth-child(6n + 1):hover {
-//     background: color-mix(in srgb, $bright-blue 15%, transparent);
-// }
-// .pill-group .pill:nth-child(6n + 2) {
-//     background: $french-violet-light;
-//     color: $french-violet;
-// }
-// .pill-group .pill:nth-child(6n + 2):hover {
-//     background: color-mix(in srgb, $french-violet 15%, transparent);
-// }
-// .pill-group .pill:nth-child(6n + 3),
-// .pill-group .pill:nth-child(6n + 4),
-// .pill-group .pill:nth-child(6n + 5) {
-//     background: $hot-red-light;
-//     color: $hot-red;
-// }
-// .pill-group .pill:nth-child(6n + 3):hover,
-// .pill-group .pill:nth-child(6n + 4):hover,
-// .pill-group .pill:nth-child(6n + 5):hover {
-//     background: color-mix(in srgb, $hot-red 15%, transparent);
-// }
 
 .pill-group svg {
     margin-inline-start: 0.25rem;

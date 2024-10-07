@@ -1,13 +1,51 @@
 .deck-board{
     display: flex;
-    outline-color: red;
-    outline-style: solid;
+    justify-content: center;
 }
 
 .row{
     display: flex;
+    flex-direction: row;
 }
 .column{
     display: flex;
     flex-direction: column;
+}
+
+.score-banner{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.perfect-score{
+    background-color: lime;
+    outline-color: gold;
+    outline-style: solid;
+    outline-width: 2px;
+    max-width: fit-content;
+    padding: 20px;
+}
+.great-score{
+    background-color: lime;
+    outline-color: lightgray;
+    outline-style: solid;
+    outline-width: 2px;
+    max-width: fit-content;
+    padding: 20px;
+}
+.ok-score{
+    background-color: yellow;
+    outline-color: lightgray;
+    outline-style: solid;
+    outline-width: 2px;
+    max-width: fit-content;
+    padding: 20px;
+}
+.bad-score{
+    background-color: red;
+    outline-color: black;
+    outline-style: solid;
+    outline-width: 2px;
+    max-width: fit-content;
+    padding: 20px;
 }

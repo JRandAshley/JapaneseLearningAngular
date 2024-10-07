@@ -9,6 +9,8 @@ import { Card } from '../../models/card';
 })
 export class FlashcardsDetailsComponent implements OnInit {
   isFlipped: boolean = false;
+  japSide: boolean = true;
+  sideDeterminer: number = Math.floor(Math.random()*(100));
 
   @Input()
   detail!: Card;
@@ -18,10 +20,14 @@ export class FlashcardsDetailsComponent implements OnInit {
 
   constructor(){ }
   ngOnInit(): void{
-
+    if(this.sideDeterminer > 50){
+      this.japSide = false;
+    }
   }
+
   flipCard(){
     this.isFlipped = !this.isFlipped;
+    this.japSide = !this.japSide;
   }
   goToNextCard(cardResult: string){
     this.nextCardEvent.emit(cardResult);

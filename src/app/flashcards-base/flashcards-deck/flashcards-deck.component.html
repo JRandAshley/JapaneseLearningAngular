@@ -1,11 +1,26 @@
-<div class="deck-board">
+<div class="row">
     <div class="column">
-        <div class="row" *ngFor="let card of deck1; let i = index">
-            <button (click)="setCurrentCardTo(i)">{{i+1}}</button>
+        <div>
+            <div style="display: inline-flex;">
+                <button (click)="changeDeck('deck1')">Deck1</button>
+                <button (click)="changeDeck('deck2')">Deck2</button>
+                <button (click)="changeDeck('numbersDeck')">Numbers</button>
+            </div>
+            <br/>
+            <div *ngFor="let card of currentDeck; let i = index" style="display: inline-flex;">
+                <button (click)="setCurrentCardTo(i)">{{i+1}}</button>
+            </div>
+            {{currentCard}}
         </div>
-        <div *ngFor="let card of deck1; let i = index">
-            <div *ngIf="i === currentCard">
-                <app-flashcards-details [detail]="card" (nextCardEvent)="receiveNextCardEvent($event)"></app-flashcards-details>
+        <h3>You've gotten {{numberCorrect}} correct and {{numberIncorrect}} incorrect out of {{numberFlipped}}.</h3>
+        <div *ngIf="numberFlipped>0" [ngClass]="{'bad-score': score <= 50, 'ok-score': score>50&&score<80, 'great-score': score>=80&&score<100, 'perfect-score': score===100}">
+            <h1>{{score | number:'1.0-2'}}%</h1><!--score rounded using pipe-->
+        </div>
+    </div>
+    <div class="deck-board">
+        <div *ngFor="let card of currentDeck; let i = index">
+            <div *ngIf="i === currentCard" style="margin: 20px">
+                <app-flashcards-details [detail]="card"  (nextCardEvent)="receiveNextCardEvent($event)"></app-flashcards-details>
             </div>
         </div>
     </div>

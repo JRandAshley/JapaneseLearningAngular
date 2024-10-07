@@ -1,7 +1,10 @@
 export interface Card {
     id: number,
-    frontSideA: string,
-    frontSideB: string,
-    backSideA: string,
-    backSideB: string
+    japKanji: string,
+    japHiraKata: string,
+    japRomanji: string,
+    japNotes: string,
+    english: string,
+    example: string
+    engNotes: string
 }

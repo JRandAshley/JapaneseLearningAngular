@@ -25,3 +25,21 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+Angular Commmands
+--------------------------------------------------
+Generate Module Command: ng generate module example-base
+*confirm that exports: [] is present in module's .ts file
+*import module into app.module.ts
+
+Generate Component Command: ng generate component example-base/example-child --module=example-base/example-base.module
+*example: the module's name
+*child: the component's name
+
+Git Commands
+--------------------------------------------------
+Stage All Files: git add .
+
+Commit to Memory: git commit -m 'message'
+
+Push Commit to Origin: git push -u origin master

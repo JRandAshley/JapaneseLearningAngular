@@ -1,5 +1,5 @@
-$card-height: 300px;
-$card-width: 200px;
+$card-height: 600px;
+$card-width: 400px;
 
 .card{
     display: flex;
@@ -11,12 +11,42 @@ $card-width: 200px;
     height: $card-height;
     width: $card-width;
 }
+.card-line{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
 .flip-button{
     background-color: lightblue;
+    height: 100px;
+    width: 200px;
+    border-radius: 25px;
 }
 .correct-button{
     background-color: lime;
+    height: 100px;
+    width: 100px;
+    border-radius: 25px;
 }
 .incorrect-button{
     background-color: red;
+    height: 100px;
+    width: 100px;
+    border-radius: 25px;
+}
+.button-spacer{
+    width: 100px;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+}
+.column{
+    display: flex;
+    flex-direction: column;
+}
+.notes{
+    text-align: center;
+    color: gray
 }
