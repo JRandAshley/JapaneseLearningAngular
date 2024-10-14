@@ -1,1 +1,32 @@
-<p>dictionary-display works!</p>
+<div *ngIf="wordSelected">
+    <div *ngIf="selectedWordType === 'noun'">
+        <h1>{{selectedNoun.Kanji}}</h1>
+        <h1>{{selectedNoun.english}}</h1>
+    </div>
+    <div *ngIf="selectedWordType === 'verb'">
+        <h1>{{selectedVerb.dictionaryFormK}}</h1>
+        <h1>{{selectedVerb.english}}</h1>
+    </div>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>Part of Speech</th>
+            <th>Kanji</th>
+            <th>Hiragana / Katakana</th>
+            <th>Romanji</th>
+            <th>English Meaning</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let word of CurrentDisplay; let i = index">
+        <tr [ngClass]="{'oddRow': i % 2 === 1}" (click)="showWord(word.id, word.type)">
+            <td *ngIf="word.type === 'noun'">Noun</td>
+            <td *ngIf="word.type === 'verb'">Verb</td>
+            <td>{{word.kanji}}</td>
+            <td>{{word.hiraKata}}</td>
+            <td>{{word.romanji}}</td>
+            <td>{{word.english}}</td>
+        </tr>
+    </tbody>
+</table>

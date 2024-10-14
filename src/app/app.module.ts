@@ -9,6 +9,7 @@ import { ChartsBaseModule } from './charts-base/charts-base.module';
 import { DictionaryBaseModule } from './dictionary-base/dictionary-base.module';
 import { DefaultHomePageComponent } from './default-home-page/default-home-page.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { DictionaryToolService } from './services/dictionary-tool.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     PageNotFoundComponent
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    DictionaryToolService
   ],
   bootstrap: [AppComponent]
 })

@@ -9,8 +9,10 @@ import { FormsModule } from '@angular/forms';
 })
 export class AppComponent {
   title: String;
+  flowers: String;
 
   constructor(){
     this.title = "Learning Japanese";
+    this.flowers = "&#x1F338;&#x1F338;&#x1F338;&#x1F338;&#x1F338;&#x1F338;&#x1F338;&#x1F338;&#x1F338;&#x1F338;"
   }
 }

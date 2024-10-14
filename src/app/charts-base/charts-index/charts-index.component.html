@@ -238,286 +238,379 @@
     </div>
 </div>
 <div *ngIf="showVerbConjugation===true">
+    <div>
+        <h1>{{verbBaseH1}}</h1>
+        <p>{{verbBaseDetails}}</p>
+        <div *ngIf="verbBaseH1 === 'Godan Base te' || verbBaseH1 === 'Godan Base ta'">
+            <p>Notice: There is one thing that you'll need to learn in order to conjugate the "te" and "ta" forms correctly. Basically, for all Godan verbs ending in う (u), つ (tsu), or る (ru); the う (u), つ (tsu), or る (ru) becomes って (tte) in the "te" form and った (tta) in the "ta" form. (ex. katsu (to win) -> katte (Win!), katta (We won!))</p>
+            <p>For all Godan verbs ending in ぶ (bu), む (mu), or ぬ (nu); the ぶ (bu), む (mu), or ぬ (nu) becomes んで (nde) in the "te" form and んだ (nda) in the "ta" form. (ex. yomu (to read -> yonde (Read it.), yonda (I read it.)))</p>
+            <p>For all Godan verbs ending in く (ku), the く (ku) becomes いて (ite) in the "te" form and いた (ita) in the "ta" form. (ex. aruku (to walk) -> aruite (Walk!), aruita (I walked here.)) The only exception to this rule is for the verb iku (to go) which becomes いって, いった (itte/itta).</p>
+            <p>For all Godan verbs ending in ぐ (gu), the ぐ (gu) becomes いで (ide) in the "te" form and いだ (ida) in the "ta" form. (ex. oyogu (to swim) -> oyoide (Swim!), oyoida (I swam.))</p>
+            <p>For all Godan verbs ending in す (su), the す (su) becomes して (shite) in the "te" form and した (shita) in the "ta" form. (ex. hanasu (to talk) -> hanashite (Say something!), hanashita (I talked (to him).))</p>
+        </div>
+    </div>
     <div class="row">
         <div class="column">
-            <div class="row">
-                <div class="column">
-                    <h1 (click)="showBaseInfo('Godan')">Godan Verbs - 五段動詞</h1>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Kanji</th>
-                                <th>Hiragana</th>
-                                <th>Romaji</th>
-                                <th>Verb Base</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>話す</td>
-                                <td>はなす</td>
-                                <td>hanasu (to speak)</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>話さ</td>
-                                <td>はなさ</td>
-                                <td>hanasa</td>
-                                <td (click)="showBaseInfo('GB1')">Base 1</td>
-                            </tr>
-                            <tr>
-                                <td>話し</td>
-                                <td>はなし</td>
-                                <td>hanashi</td>
-                                <td (click)="showBaseInfo('GB2')">Base 2</td>
-                            </tr>
-                            <tr>
-                                <td>話す</td>
-                                <td>はなす</td>
-                                <td>hanasu</td>
-                                <td (click)="showBaseInfo('GB3')">Base 3</td>
-                            </tr>
-                            <tr>
-                                <td>話せ</td>
-                                <td>はなせ</td>
-                                <td>hanase</td>
-                                <td (click)="showBaseInfo('GB4')">Base 4</td>
-                            </tr>
-                            <tr>
-                                <td>話そう</td>
-                                <td>はなそう</td>
-                                <td>hanasou</td>
-                                <td (click)="showBaseInfo('GB5')">Base 5</td>
-                            </tr>
-                            <tr>
-                                <td>話して</td>
-                                <td>はなして</td>
-                                <td>hanashite</td>
-                                <td (click)="showBaseInfo('GBTe')">Base "te"</td>
-                            </tr>
-                            <tr>
-                                <td>話した</td>
-                                <td>はなした</td>
-                                <td>hanashita</td>
-                                <td (click)="showBaseInfo('GBTa')">Base "ta"</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="column">
-                    <h1 (click)="showBaseInfo('Ichidan')">Ichidan Verbs - 段動詞</h1>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Kanji</th>
-                                <th>Hiragana</th>
-                                <th>Romaji</th>
-                                <th>Verb Base</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>食べる</td>
-                                <td>たべる</td>
-                                <td>taberu (to eat)</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>食べ</td>
-                                <td>たべ</td>
-                                <td>tabe</td>
-                                <td (click)="showBaseInfo('IB1')">Base 1</td>
-                            </tr>
-                            <tr>
-                                <td>食べ</td>
-                                <td>たべ</td>
-                                <td>tabe</td>
-                                <td (click)="showBaseInfo('IB2')">Base 2</td>
-                            </tr>
-                            <tr>
-                                <td>食べる</td>
-                                <td>たべる</td>
-                                <td>taberu</td>
-                                <td (click)="showBaseInfo('IB3')">Base 3</td>
-                            </tr>
-                            <tr>
-                                <td>食べれ</td>
-                                <td>たべれ</td>
-                                <td>tabere</td>
-                                <td (click)="showBaseInfo('IB4')">Base 4</td>
-                            </tr>
-                            <tr>
-                                <td>食べよう</td>
-                                <td>たべよう</td>
-                                <td>tabeyou</td>
-                                <td (click)="showBaseInfo('IB5')">Base 5</td>
-                            </tr>
-                            <tr>
-                                <td>食べて</td>
-                                <td>たべて</td>
-                                <td>tabete</td>
-                                <td (click)="showBaseInfo('IBTe')">Base "te"</td>
-                            </tr>
-                            <tr>
-                                <td>食べた</td>
-                                <td>たべた</td>
-                                <td>tabeta</td>
-                                <td (click)="showBaseInfo('IBTa')">Base "ta"</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <!-- <div style="width: 25%">
-                    <h1>{{verbBaseH1}}</h1>
-                    <p>{{verbBaseDetails}}</p>
-                    <div *ngIf="verbBaseH1 === 'Godan Base te' || verbBaseH1 === 'Godan Base ta'">
-                        <p>Notice: There is one thing that you'll need to learn in order to conjugate the "te" and "ta" forms correctly. Basically, for all Godan verbs ending in う (u), つ (tsu), or る (ru); the う (u), つ (tsu), or る (ru) becomes って (tte) in the "te" form and った (tta) in the "ta" form. (ex. katsu (to win) -> katte (Win!), katta (We won!))</p>
-                        <p>For all Godan verbs ending in ぶ (bu), む (mu), or ぬ (nu); the ぶ (bu), む (mu), or ぬ (nu) becomes んで (nde) in the "te" form and んだ (nda) in the "ta" form. (ex. yomu (to read -> yonde (Read it.), yonda (I read it.)))</p>
-                        <p>For all Godan verbs ending in く (ku), the く (ku) becomes いて (ite) in the "te" form and いた (ita) in the "ta" form. (ex. aruku (to walk) -> aruite (Walk!), aruita (I walked here.)) The only exception to this rule is for the verb iku (to go) which becomes いって, いった (itte/itta).</p>
-                        <p>For all Godan verbs ending in ぐ (gu), the ぐ (gu) becomes いで (ide) in the "te" form and いだ (ida) in the "ta" form. (ex. oyogu (to swim) -> oyoide (Swim!), oyoida (I swam.))</p>
-                        <p>For all Godan verbs ending in す (su), the す (su) becomes して (shite) in the "te" form and した (shita) in the "ta" form. (ex. hanasu (to talk) -> hanashite (Say something!), hanashita (I talked (to him).))</p>
-                    </div>
-                </div> -->
-            </div>
-            <div class="row">
-                <div class="column">
-                    <h1 (click)="showBaseInfo('Suru')">Irregular - Suru (to do something)</h1>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Kanji</th>
-                                <th>Hiragana</th>
-                                <th>Romanji</th>
-                                <th>Verb Base</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>する</td>
-                                <td>する</td>
-                                <td>suru (to do)</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>し</td>
-                                <td>し</td>
-                                <td>shi</td>
-                                <td (click)="showBaseInfo('SB1')">Base 1</td>
-                            </tr>
-                            <tr>
-                                <td>し</td>
-                                <td>し</td>
-                                <td>shi</td>
-                                <td (click)="showBaseInfo('SB2')">Base 2</td>
-                            </tr>
-                            <tr>
-                                <td>する</td>
-                                <td>する</td>
-                                <td>suru</td>
-                                <td (click)="showBaseInfo('SB3')">Base 3</td>
-                            </tr>
-                            <tr>
-                                <td>すれ</td>
-                                <td>すれ</td>
-                                <td>sure</td>
-                                <td (click)="showBaseInfo('SB4')">Base 4</td>
-                            </tr>
-                            <tr>
-                                <td>しよう</td>
-                                <td>しよう</td>
-                                <td>shiyou</td>
-                                <td (click)="showBaseInfo('SB5')">Base 5</td>
-                            </tr>
-                            <tr>
-                                <td>して</td>
-                                <td>して</td>
-                                <td>shite</td>
-                                <td (click)="showBaseInfo('SBTe')">Base "te"</td>
-                            </tr>
-                            <tr>
-                                <td>した</td>
-                                <td>した</td>
-                                <td>shita</td>
-                                <td (click)="showBaseInfo('SBTa')">Base "ta"</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="column">
-                    <h1 (click)="showBaseInfo('Kuru')">Irregular - Kuru (to come)</h1>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Kanji</th>
-                                <th>Hiragana</th>
-                                <th>Romanji</th>
-                                <th>Verb Base</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>来る</td>
-                                <td>くる</td>
-                                <td>kuru (to come)</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>来</td>
-                                <td>こ</td>
-                                <td>ko</td>
-                                <td (click)="showBaseInfo('KB1')">Base 1</td>
-                            </tr>
-                            <tr>
-                                <td>来</td>
-                                <td>き</td>
-                                <td>ki</td>
-                                <td (click)="showBaseInfo('KB2')">Base 2</td>
-                            </tr>
-                            <tr>
-                                <td>来る</td>
-                                <td>くる</td>
-                                <td>kuru</td>
-                                <td (click)="showBaseInfo('KB3')">Base 3</td>
-                            </tr>
-                            <tr>
-                                <td>来れ</td>
-                                <td>くれ</td>
-                                <td>kure</td>
-                                <td (click)="showBaseInfo('KB4')">Base 4</td>
-                            </tr>
-                            <tr>
-                                <td>来よう</td>
-                                <td>こよう</td>
-                                <td>koyou</td>
-                                <td (click)="showBaseInfo('KB5')">Base 5</td>
-                            </tr>
-                            <tr>
-                                <td>来て</td>
-                                <td>きて</td>
-                                <td>kite</td>
-                                <td (click)="showBaseInfo('KBTe')">Base "te"</td>
-                            </tr>
-                            <tr>
-                                <td>来た</td>
-                                <td>きた</td>
-                                <td>kita</td>
-                                <td (click)="showBaseInfo('KBTa')">Base "ta"</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+            <h1 (click)="showBaseInfo('Godan')">Godan Verbs - 五段動詞</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Kanji</th>
+                        <th>Hiragana</th>
+                        <th>Romaji</th>
+                        <th>Verb Base</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>話す</td>
+                        <td>はなす</td>
+                        <td>hanasu (to speak)</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>話さ</td>
+                        <td>はなさ</td>
+                        <td>hanasa</td>
+                        <td (click)="showBaseInfo('GB1')">Base 1</td>
+                    </tr>
+                    <tr>
+                        <td>話し</td>
+                        <td>はなし</td>
+                        <td>hanashi</td>
+                        <td (click)="showBaseInfo('GB2')">Base 2</td>
+                    </tr>
+                    <tr>
+                        <td>話す</td>
+                        <td>はなす</td>
+                        <td>hanasu</td>
+                        <td (click)="showBaseInfo('GB3')">Base 3</td>
+                    </tr>
+                    <tr>
+                        <td>話せ</td>
+                        <td>はなせ</td>
+                        <td>hanase</td>
+                        <td (click)="showBaseInfo('GB4')">Base 4</td>
+                    </tr>
+                    <tr>
+                        <td>話そう</td>
+                        <td>はなそう</td>
+                        <td>hanasou</td>
+                        <td (click)="showBaseInfo('GB5')">Base 5</td>
+                    </tr>
+                    <tr>
+                        <td>話して</td>
+                        <td>はなして</td>
+                        <td>hanashite</td>
+                        <td (click)="showBaseInfo('GBTe')">Base "te"</td>
+                    </tr>
+                    <tr>
+                        <td>話した</td>
+                        <td>はなした</td>
+                        <td>hanashita</td>
+                        <td (click)="showBaseInfo('GBTa')">Base "ta"</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h1 (click)="showBaseInfo('Suru')">Irregular - Suru (to do something)</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Kanji</th>
+                        <th>Hiragana</th>
+                        <th>Romanji</th>
+                        <th>Verb Base</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>する</td>
+                        <td>する</td>
+                        <td>suru (to do)</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>し</td>
+                        <td>し</td>
+                        <td>shi</td>
+                        <td (click)="showBaseInfo('SB1')">Base 1</td>
+                    </tr>
+                    <tr>
+                        <td>し</td>
+                        <td>し</td>
+                        <td>shi</td>
+                        <td (click)="showBaseInfo('SB2')">Base 2</td>
+                    </tr>
+                    <tr>
+                        <td>する</td>
+                        <td>する</td>
+                        <td>suru</td>
+                        <td (click)="showBaseInfo('SB3')">Base 3</td>
+                    </tr>
+                    <tr>
+                        <td>すれ</td>
+                        <td>すれ</td>
+                        <td>sure</td>
+                        <td (click)="showBaseInfo('SB4')">Base 4</td>
+                    </tr>
+                    <tr>
+                        <td>しよう</td>
+                        <td>しよう</td>
+                        <td>shiyou</td>
+                        <td (click)="showBaseInfo('SB5')">Base 5</td>
+                    </tr>
+                    <tr>
+                        <td>して</td>
+                        <td>して</td>
+                        <td>shite</td>
+                        <td (click)="showBaseInfo('SBTe')">Base "te"</td>
+                    </tr>
+                    <tr>
+                        <td>した</td>
+                        <td>した</td>
+                        <td>shita</td>
+                        <td (click)="showBaseInfo('SBTa')">Base "ta"</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <div style="width: 25%">
-            <h1>{{verbBaseH1}}</h1>
-            <p>{{verbBaseDetails}}</p>
-            <div *ngIf="verbBaseH1 === 'Godan Base te' || verbBaseH1 === 'Godan Base ta'">
-                <p>Notice: There is one thing that you'll need to learn in order to conjugate the "te" and "ta" forms correctly. Basically, for all Godan verbs ending in う (u), つ (tsu), or る (ru); the う (u), つ (tsu), or る (ru) becomes って (tte) in the "te" form and った (tta) in the "ta" form. (ex. katsu (to win) -> katte (Win!), katta (We won!))</p>
-                <p>For all Godan verbs ending in ぶ (bu), む (mu), or ぬ (nu); the ぶ (bu), む (mu), or ぬ (nu) becomes んで (nde) in the "te" form and んだ (nda) in the "ta" form. (ex. yomu (to read -> yonde (Read it.), yonda (I read it.)))</p>
-                <p>For all Godan verbs ending in く (ku), the く (ku) becomes いて (ite) in the "te" form and いた (ita) in the "ta" form. (ex. aruku (to walk) -> aruite (Walk!), aruita (I walked here.)) The only exception to this rule is for the verb iku (to go) which becomes いって, いった (itte/itta).</p>
-                <p>For all Godan verbs ending in ぐ (gu), the ぐ (gu) becomes いで (ide) in the "te" form and いだ (ida) in the "ta" form. (ex. oyogu (to swim) -> oyoide (Swim!), oyoida (I swam.))</p>
-                <p>For all Godan verbs ending in す (su), the す (su) becomes して (shite) in the "te" form and した (shita) in the "ta" form. (ex. hanasu (to talk) -> hanashite (Say something!), hanashita (I talked (to him).))</p>
-            </div>
+        <div class="column">
+            <h1 (click)="showBaseInfo('Ichidan')">Ichidan Verbs - 段動詞</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Kanji</th>
+                        <th>Hiragana</th>
+                        <th>Romaji</th>
+                        <th>Verb Base</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>食べる</td>
+                        <td>たべる</td>
+                        <td>taberu (to eat)</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>食べ</td>
+                        <td>たべ</td>
+                        <td>tabe</td>
+                        <td (click)="showBaseInfo('IB1')">Base 1</td>
+                    </tr>
+                    <tr>
+                        <td>食べ</td>
+                        <td>たべ</td>
+                        <td>tabe</td>
+                        <td (click)="showBaseInfo('IB2')">Base 2</td>
+                    </tr>
+                    <tr>
+                        <td>食べる</td>
+                        <td>たべる</td>
+                        <td>taberu</td>
+                        <td (click)="showBaseInfo('IB3')">Base 3</td>
+                    </tr>
+                    <tr>
+                        <td>食べれ</td>
+                        <td>たべれ</td>
+                        <td>tabere</td>
+                        <td (click)="showBaseInfo('IB4')">Base 4</td>
+                    </tr>
+                    <tr>
+                        <td>食べよう</td>
+                        <td>たべよう</td>
+                        <td>tabeyou</td>
+                        <td (click)="showBaseInfo('IB5')">Base 5</td>
+                    </tr>
+                    <tr>
+                        <td>食べて</td>
+                        <td>たべて</td>
+                        <td>tabete</td>
+                        <td (click)="showBaseInfo('IBTe')">Base "te"</td>
+                    </tr>
+                    <tr>
+                        <td>食べた</td>
+                        <td>たべた</td>
+                        <td>tabeta</td>
+                        <td (click)="showBaseInfo('IBTa')">Base "ta"</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h1 (click)="showBaseInfo('Kuru')">Irregular - Kuru (to come)</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Kanji</th>
+                        <th>Hiragana</th>
+                        <th>Romanji</th>
+                        <th>Verb Base</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>来る</td>
+                        <td>くる</td>
+                        <td>kuru (to come)</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>来</td>
+                        <td>こ</td>
+                        <td>ko</td>
+                        <td (click)="showBaseInfo('KB1')">Base 1</td>
+                    </tr>
+                    <tr>
+                        <td>来</td>
+                        <td>き</td>
+                        <td>ki</td>
+                        <td (click)="showBaseInfo('KB2')">Base 2</td>
+                    </tr>
+                    <tr>
+                        <td>来る</td>
+                        <td>くる</td>
+                        <td>kuru</td>
+                        <td (click)="showBaseInfo('KB3')">Base 3</td>
+                    </tr>
+                    <tr>
+                        <td>来れ</td>
+                        <td>くれ</td>
+                        <td>kure</td>
+                        <td (click)="showBaseInfo('KB4')">Base 4</td>
+                    </tr>
+                    <tr>
+                        <td>来よう</td>
+                        <td>こよう</td>
+                        <td>koyou</td>
+                        <td (click)="showBaseInfo('KB5')">Base 5</td>
+                    </tr>
+                    <tr>
+                        <td>来て</td>
+                        <td>きて</td>
+                        <td>kite</td>
+                        <td (click)="showBaseInfo('KBTe')">Base "te"</td>
+                    </tr>
+                    <tr>
+                        <td>来た</td>
+                        <td>きた</td>
+                        <td>kita</td>
+                        <td (click)="showBaseInfo('KBTa')">Base "ta"</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="column">
+            <h1>Using Verb Bases</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Hiragana</th>
+                        <th>Romanji</th>
+                        <th>English Meaning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Base 1 + ない</td>
+                        <td>Base 1 + nai</td>
+                        <td>plain form negative (will not verb)</td>
+                    </tr>
+                    <tr>
+                        <td>Base 1 + なかった</td>
+                        <td>Base 1 + nakatta</td>
+                        <td>plain form past negative (did not verb)</td>
+                    </tr>
+                    <tr>
+                        <td>Base 2 + ます</td>
+                        <td>Base 2 + masu</td>
+                        <td>polite form present/future tense</td>
+                    </tr>
+                    <tr>
+                        <td>Base 2 + ました</td>
+                        <td>Base 2 + mashita</td>
+                        <td>polite form past tense</td>
+                    </tr>
+                    <tr>
+                        <td>Base 2 + ません</td>
+                        <td>Base 2 + masen</td>
+                        <td>polite form negative (will not verb)</td>
+                    </tr>
+                    <tr>
+                        <td>Base 2 + ませんでした</td>
+                        <td>Base 2 + masen deshita</td>
+                        <td>polite form past negative (did not verb)</td>
+                    </tr>
+                    <tr>
+                        <td>Base 2 + たい</td>
+                        <td>Base 2 + tai</td>
+                        <td>want to verb (add です (desu) to make it polite)</td>
+                    </tr>
+                    <tr>
+                        <td>Base 3</td>
+                        <td>Base 3</td>
+                        <td>plain form present/future tense</td>
+                    </tr>
+                    <tr>
+                        <td>Base 4 + ば</td>
+                        <td>Base 4 + ba</td>
+                        <td>if verb</td>
+                    </tr>
+                    <tr>
+                        <td>Base 4 + る</td>
+                        <td>Base 4 + ru</td>
+                        <td>plain form can verb (Godan verbs only) (verb now becomes an Ichidan verb)</td>
+                    </tr>
+                    <tr>
+                        <td>Base 4 + ます</td>
+                        <td>Base 4 + masu</td>
+                        <td>polite form can verb (can be changed like above)</td>
+                    </tr>
+                    <tr>
+                        <td>Base 5 + とする</td>
+                        <td>Base 5 + to suru</td>
+                        <td>try to verb (suru mean "to do something")</td>
+                    </tr>
+                    <tr>
+                        <td>Base "te" + 欲しい</td>
+                        <td>Base "te" + hoshii</td>
+                        <td>want someone else to verb (hoshii is an adjective)</td>
+                    </tr>
+                    <tr>
+                        <td>Base "te"</td>
+                        <td>Base "te"</td>
+                        <td>plain form command</td>
+                    </tr>
+                    <tr>
+                        <td>Base "te" + 下さい</td>
+                        <td>Base "te" + kudasai</td>
+                        <td>polite form command</td>
+                    </tr>
+                    <tr>
+                        <td>Base "te" + いる</td>
+                        <td>Base "te" + iru</td>
+                        <td>plain form presently verbing (iru means "to exist(animate)")</td>
+                    </tr>
+                    <tr>
+                        <td>Base "te" + います</td>
+                        <td>Base "te" + imasu</td>
+                        <td>polite form presently verbing (can be changed like above)</td>
+                    </tr>
+                    <tr>
+                        <td>Base "ta"</td>
+                        <td>Base "ta"</td>
+                        <td>plain form past tense</td>
+                    </tr>
+                    <tr>
+                        <td>Base "ta" + ら</td>
+                        <td>Base "ta" + ra</td>
+                        <td>if and when I verb (similar to Base 4 + ba)</td>
+                    </tr>
+                    <tr>
+                        <td>Base "ta" + りする</td>
+                        <td>Base "ta" + ri suru</td>
+                        <td>do such things as... (suru means "to do something")</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

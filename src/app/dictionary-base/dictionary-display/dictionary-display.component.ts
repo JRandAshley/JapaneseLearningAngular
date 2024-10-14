@@ -1,71 +1,37 @@
 import { Component } from '@angular/core';
-import { Noun } from '../../models/words';
+import { Noun, Verb } from '../../models/words';
+import { DictionaryToolService } from '../../services/dictionary-tool.service';
 
 @Component({
   selector: 'app-dictionary-display',
   templateUrl: './dictionary-display.component.html',
   styleUrl: './dictionary-display.component.scss'
 })
+
 export class DictionaryDisplayComponent {
-  Noun: Noun[] = [{
-    id: "!template",
-    hasKanji: false,
-    Kanji: "string",
-    hiraKata: "!string",
-    romanji: "!string",
-    english: "!string",
-    notes: "string",
-    synonyms: [],
-    tags: []
-  },{
-  id: "1",
-  hasKanji: false,
-  Kanji: "",
-  hiraKata: "ほん",
-  romanji: "hon",
-  english: "book(s)",
-  notes: "",
-  synonyms: [],
-  tags: []
-},{
-  id: "2",
-  hasKanji: false,
-  Kanji: "",
-  hiraKata: "",
-  romanji: "hana",
-  english: "flower(s)",
-  notes: "",
-  synonyms: [],
-  tags: []
-},{
-  id: "3",
-  hasKanji: false,
-  Kanji: "",
-  hiraKata: "テーブル",
-  romanji: "Teburu",
-  english: "table",
-  notes: "",
-  synonyms: [],
-  tags: []
-},{
-  id: "4",
-  hasKanji: false,
-  Kanji: "",
-  hiraKata: "ドア",
-  romanji: "doa",
-  english: "door",
-  notes: "",
-  synonyms: [],
-  tags: []
-},{
-  id: "5",
-  hasKanji: false,
-  Kanji: "",
-  hiraKata: "りんご",
-  romanji: "ringo",
-  english: "apple",
-  notes: "",
-  synonyms: [],
-  tags: []
-}]
+  wordSelected: boolean = false;
+  selectedWordType!: string;
+  selectedWordId!: string;
+  selectedNoun!: Noun;
+  selectedVerb!: Verb;
+  NounDictionary;
+  VerbDictionary
+  CurrentDisplay;
+
+  constructor(private service: DictionaryToolService) {
+    this.NounDictionary = service.getNouns();
+    this.VerbDictionary = service.getVerbs();
+    this.CurrentDisplay = service.getAllWords();
+  }
+
+  showWord(wordId: string, wordType: string) {
+    this.wordSelected = true;
+    this.selectedWordType = wordType;
+    if(wordType === "noun"){
+      this.selectedNoun = this.service.getWordById(wordId, wordType)
+    }
+    if(wordType === "verb"){
+      this.selectedVerb = this.service.getWordById(wordId, wordType)
+    }
+  }
 }
