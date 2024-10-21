@@ -5,7 +5,22 @@ export interface Word {
     hiraKata: string,
     romanji: string,
     english: string
-  }
+}
+
+export interface Particle {
+    id: string
+    hasKanji: boolean,
+    Kanji: string,
+    hiraKata: string,
+    romanji: string,
+    english: string,
+    functionality: string,
+    formation: string,
+    example: string,
+    notes: string,
+    synonyms: string[],
+    tags: string[]
+}
 
 export interface Noun {
     id: string
@@ -50,4 +65,10 @@ export interface Verb {
     notes: string,
     synonyms: string[],
     tags: string[]
+}
+
+export interface UsableVerb {
+    Kanji: string,
+    HiraKata: string,
+    romanji: string
 }

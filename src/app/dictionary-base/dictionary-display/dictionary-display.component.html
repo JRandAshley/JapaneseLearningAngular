@@ -1,15 +1,113 @@
-<div *ngIf="wordSelected">
-    <div *ngIf="selectedWordType === 'noun'">
-        <h1>{{selectedNoun.Kanji}}</h1>
-        <h1>{{selectedNoun.english}}</h1>
+<div *ngIf="wordSelected"><!-- Display Box for a selected Word-->
+    <div *ngIf="selectedWordType === 'noun'" class="wordDisplayContainerNoun">
+        <div>{{selectedNoun.hiraKata}} means {{selectedNoun.english}}.</div>
+        <div>Kanji: {{selectedNoun.Kanji}}</div>
+        <div>Hiragana / Katakana: {{selectedNoun.hiraKata}}</div>
+        <div>Romanji: {{selectedNoun.romanji}}</div>
+        <div>English: {{selectedNoun.english}}</div>
     </div>
-    <div *ngIf="selectedWordType === 'verb'">
-        <h1>{{selectedVerb.dictionaryFormK}}</h1>
-        <h1>{{selectedVerb.english}}</h1>
+    <div *ngIf="selectedWordType === 'verb'" class="wordDisplayContainerVerb">
+        <table class="small-table"><!-- Verb Conjigation Chart-->
+            <thead>
+                <tr>
+                    <td>Kanji</td>
+                    <td>Hiragana</td>
+                    <td>Romanji</td>
+                    <td>Verb Base</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{selectedVerb.dictionaryFormK}}</td>
+                    <td>{{selectedVerb.dictionaryFormHK}}</td>
+                    <td>{{selectedVerb.dictionaryFormRomanji}}({{selectedVerb.english}})</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>{{selectedVerb.B1FormK}}</td>
+                    <td>{{selectedVerb.B1FormHK}}</td>
+                    <td>{{selectedVerb.B1FormRomanji}}</td>
+                    <td>Base 1</td>
+                </tr>
+                <tr>
+                    <td>{{selectedVerb.B2FormK}}</td>
+                    <td>{{selectedVerb.B2FormHK}}</td>
+                    <td>{{selectedVerb.B2FormRomanji}}</td>
+                    <td>Base 2</td>
+                </tr>
+                <tr>
+                    <td>{{selectedVerb.B3FormK}}</td>
+                    <td>{{selectedVerb.B3FormHK}}</td>
+                    <td>{{selectedVerb.B3FormRomanji}}</td>
+                    <td>Base 3</td>
+                </tr>
+                <tr>
+                    <td>{{selectedVerb.B4FormK}}</td>
+                    <td>{{selectedVerb.B4FormHK}}</td>
+                    <td>{{selectedVerb.B4FormRomanji}}</td>
+                    <td>Base 4</td>
+                </tr>
+                <tr>
+                    <td>{{selectedVerb.B5FormK}}</td>
+                    <td>{{selectedVerb.B5FormHK}}</td>
+                    <td>{{selectedVerb.B5FormRomanji}}</td>
+                    <td>Base 5</td>
+                </tr>
+                <tr>
+                    <td>{{selectedVerb.BTeFormK}}</td>
+                    <td>{{selectedVerb.BTeFormHK}}</td>
+                    <td>{{selectedVerb.BTeFormRomanji}}</td>
+                    <td>Base "Te"</td>
+                </tr>
+                <tr>
+                    <td>{{selectedVerb.BTaFormK}}</td>
+                    <td>{{selectedVerb.BTaFormHK}}</td>
+                    <td>{{selectedVerb.BTaFormRomanji}}</td>
+                    <td>Base "Ta"</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="column"><!-- Verb Conjigator Tool-->
+            <h3>{{selectedVerb.dictionaryFormHK}} is a {{selectedVerb.verbType}} verb meaning "{{selectedVerb.english}}".</h3>
+        <select (change)="updatePurpose($event)">
+            <option>Select</option>
+            <option value="plainNeg">Plain Negative Form (will not verb)</option>
+            <option value="plainPastNeg">Plain Past Negative Form (did not verb)</option>
+            <option value="politePresentFuture">Polite Present/Future Form</option>
+            <option value="politePast">Polite Past Form</option>
+            <option value="politeNeg">Polite Negative Form (will not verb)</option>
+            <option value="politePastNeg">Polite Past Negative Form (did not verb)</option>
+            <option value="wantTo">Want to Verb(add です (desu) to make polite)</option>
+            <option value="plainPresentFuture">Plain Present/Future Form</option>
+            <option value="ifVerb">If Verb</option>
+            <option value="plainCan">Plain Can Form (Godan verbs only) (verb now becomes an Ichidan verb)</option>
+            <option value="politeCan">Polite Can Form (Godan verbs only) (verb now becomes an Ichidan verb)</option>
+            <option value="volitional">Let's Form</option>
+            <option value="tryTo">Try to Verb (suru means to do something)</option>
+            <option value="wantSomeoneElseTo">Want Someone Else to Verb</option>
+            <option value="plainCommand">Plain Command Form</option>
+            <option value="politeCommand">Polite Command Form</option>
+            <option value="plainPresentlyVerbingAni">Plain Presently Verbing (iru means to exist (animate))</option>
+            <option value="plainPresentlyVerbing">Polite Presently Verbing (iru means to exist (animate))</option>
+            <option value="plainPast">Plain Past Form</option>
+            <option value="ifAndWhen">If and When I Verb</option>
+            <option value="doSuchThingsAs">Do Such Things as... (suru means to do something)</option>
+            </select>
+            <button (click)="showUseCase(selectedVerb.id, verbPurpose)">Use Verb</button>
+            <div *ngIf="showVerbUseCase === true">
+                <h1>Kanji: {{useCase.Kanji}}</h1>
+                <h1>Hiragana: {{useCase.HiraKata}}</h1>
+                <h1>Romanji: {{useCase.romanji}}</h1>
+            </div>
+        </div>
     </div>
 </div>
 
-<table>
+<div>
+    <input type="text"><button>Search</button>
+</div>
+
+<table> <!-- Dictionary Display Table-->
     <thead>
         <tr>
             <th>Part of Speech</th>
@@ -21,6 +119,7 @@
     </thead>
     <tbody *ngFor="let word of CurrentDisplay; let i = index">
         <tr [ngClass]="{'oddRow': i % 2 === 1}" (click)="showWord(word.id, word.type)">
+            <td *ngIf="word.type === 'particle'">Particle</td>
             <td *ngIf="word.type === 'noun'">Noun</td>
             <td *ngIf="word.type === 'verb'">Verb</td>
             <td>{{word.kanji}}</td>
