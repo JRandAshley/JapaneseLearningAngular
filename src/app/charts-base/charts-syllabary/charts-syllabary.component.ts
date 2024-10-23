@@ -13,4 +13,5 @@ export class ChartsSyllabaryComponent {
   showHiragana: boolean = true;
   showKatakana: boolean = false;
   showKanji: boolean = true;
+  test: string = "testtext";
 }

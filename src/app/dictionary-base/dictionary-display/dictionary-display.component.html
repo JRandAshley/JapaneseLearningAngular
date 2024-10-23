@@ -1,13 +1,22 @@
-<div *ngIf="wordSelected"><!-- Display Box for a selected Word-->
+<div *ngIf="wordSelected">
+    <div *ngIf="selectedWordType === 'particle'" class="wordDisplayContainerNoun">
+        <div>{{selectedParticle.hiraKata}} means {{selectedParticle.english}}.</div>
+        <div>Hiragana: {{selectedParticle.hiraKata}}</div>
+        <div>Romanji: {{selectedParticle.romanji}}</div>
+        <div>English: {{selectedParticle.english}}</div>
+        <div>Funtion: {{selectedParticle.functionality}}</div>
+        <div>Notes: {{selectedParticle.notes}}</div>
+    </div>
     <div *ngIf="selectedWordType === 'noun'" class="wordDisplayContainerNoun">
-        <div>{{selectedNoun.hiraKata}} means {{selectedNoun.english}}.</div>
+        <div>{{selectedNoun.Kanji}} means {{selectedNoun.english}}.</div>
         <div>Kanji: {{selectedNoun.Kanji}}</div>
         <div>Hiragana / Katakana: {{selectedNoun.hiraKata}}</div>
         <div>Romanji: {{selectedNoun.romanji}}</div>
         <div>English: {{selectedNoun.english}}</div>
+        <div>Notes: {{selectedNoun.notes}}</div>
     </div>
     <div *ngIf="selectedWordType === 'verb'" class="wordDisplayContainerVerb">
-        <table class="small-table"><!-- Verb Conjigation Chart-->
+        <table class="small-table">
             <thead>
                 <tr>
                     <td>Kanji</td>
@@ -67,7 +76,7 @@
                 </tr>
             </tbody>
         </table>
-        <div class="column"><!-- Verb Conjigator Tool-->
+        <div class="column">
             <h3>{{selectedVerb.dictionaryFormHK}} is a {{selectedVerb.verbType}} verb meaning "{{selectedVerb.english}}".</h3>
         <select (change)="updatePurpose($event)">
             <option>Select</option>
@@ -104,10 +113,13 @@
 </div>
 
 <div>
-    <input type="text"><button>Search</button>
+    <input type="text" [(ngModel)]="searchText"><button (click)="searchSubmit()">Search</button>
+    <input type="checkbox" [(ngModel)]="searchParticles"><label>Show Particles</label>
+    <input type="checkbox" [(ngModel)]="searchNouns"><label>Show Nouns</label>
+    <input type="checkbox" [(ngModel)]="searchVerbs"><label>Show Verbs</label>
 </div>
 
-<table> <!-- Dictionary Display Table-->
+<table>
     <thead>
         <tr>
             <th>Part of Speech</th>

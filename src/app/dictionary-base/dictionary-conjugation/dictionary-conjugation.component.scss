@@ -1,0 +1,139 @@
+.column{
+    display: flex;
+    flex-direction: column;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+}
+.displayHiragana{
+    display: flex;
+    flex-direction: row;
+}
+.hiraganaBox{
+    background-color: ghostwhite;
+    border-radius: 20px;
+    border-style: dotted;
+    border-color: black;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    font-size: 50px;
+    height: 70px;
+    width: 70px;
+    margin: 5px;
+}
+.hiraganaBoxBase{
+    background-color: ghostwhite;
+    border-radius: 20px;
+    border-style: dotted;
+    border-color: black;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    font-size: 50px;
+    height: 70px;
+    width: 70px;
+    margin: 5px;
+    color: blue;
+}
+.hiraganaBoxConjugation{
+    background-color: ghostwhite;
+    border-radius: 20px;
+    border-style: dotted;
+    border-color: black;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    font-size: 50px;
+    height: 70px;
+    width: 70px;
+    margin: 5px;
+    color: lightcoral;
+}
+
+.verbDetails{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
+    padding: 10px;
+    margin: 5px;
+}
+.grid-item{
+    background-color: lightblue;
+    border-radius: 20px;
+    border-style: solid;
+    border-color: blue;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    font-size: 30px;
+    height: 50px;
+    width: 50px;
+    margin: 5px;
+}
+.grid-item-current-last{
+    background-color: blue;
+    border-radius: 20px;
+    border-style: solid;
+    border-color: darkblue;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    font-size: 30px;
+    height: 50px;
+    width: 50px;
+    margin: 5px;
+}
+.grid-label-left{
+    display: flex;
+    flex-direction: column;
+    background-color: lightgray;
+    border-radius: 20px;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    font-size: 15px;
+    height: 50px;
+    width: 100px;
+    margin: 5px;
+}
+
+.input-area{
+    display: flex;
+    flex-direction: column;
+}
+.conjugation-buttons{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+.conjugation-button{
+    background-color: lightblue;
+    border-radius: 20px;
+    border-style: solid;
+    border-color: ghostwhite;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    height: 50px;
+    width: 100px;
+    margin: 5px;
+}
+.conjugation-button-disabled{
+    background-color: lightgray;
+    border-radius: 20px;
+    border-style: solid;
+    border-color: ghostwhite;
+    color: gray;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    height: 50px;
+    width: 100px;
+    margin: 5px;
+}

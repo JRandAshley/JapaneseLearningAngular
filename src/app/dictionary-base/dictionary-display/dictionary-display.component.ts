@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Particle, Noun, Verb, UsableVerb } from '../../models/words';
 import { DictionaryToolService } from '../../services/dictionary-tool.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-dictionary-display',
@@ -12,11 +13,14 @@ export class DictionaryDisplayComponent {
   wordSelected: boolean = false;
   selectedWordType!: string;
   selectedWordId!: string;
+  selectedParticle!: Particle;
   selectedNoun!: Noun;
   selectedVerb!: Verb;
-  ParticleDictionary;
-  NounDictionary;
-  VerbDictionary
+
+  searchText: string = "";
+  searchParticles: boolean = true;
+  searchNouns: boolean = true;
+  searchVerbs: boolean = true;
   CurrentDisplay;
 
   showVerbUseCase: boolean = false;
@@ -24,9 +28,6 @@ export class DictionaryDisplayComponent {
   verbPurpose: string = "";
 
   constructor(private service: DictionaryToolService) {
-    this.ParticleDictionary = service.getParticles();
-    this.NounDictionary = service.getNouns();
-    this.VerbDictionary = service.getVerbs();
     this.CurrentDisplay = service.getAllWords();
   }
 
@@ -34,7 +35,7 @@ export class DictionaryDisplayComponent {
     this.wordSelected = true;
     this.selectedWordType = wordType;
     if(wordType === "particle"){
-      this.selectedVerb = this.service.getWordById(wordId, wordType);
+      this.selectedParticle = this.service.getWordById(wordId, wordType);
     }
     if(wordType === "noun"){
       this.selectedNoun = this.service.getWordById(wordId, wordType);
@@ -44,6 +45,9 @@ export class DictionaryDisplayComponent {
     }
   }
 
+  searchSubmit(){
+    this.CurrentDisplay = this.service.searchWords(this.searchText, this.searchParticles, this.searchNouns, this.searchVerbs);
+  }
   showUseCase(wordId: string, purpose: string) {
     this.showVerbUseCase = true;
     this.useCase = this.service.useVerbBase(wordId, purpose);

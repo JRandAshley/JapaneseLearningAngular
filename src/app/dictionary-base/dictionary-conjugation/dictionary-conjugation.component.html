@@ -1,0 +1,144 @@
+<div class="column">
+    <div class="displayHiragana">
+        <div [ngClass]="{'hiraganaBox':baseIndex>0,'hiraganaBoxBase':baseIndex<=0,'hiraganaBoxConjugation':conjugationIndex<=0}">{{box0}}</div>
+        <div [ngClass]="{'hiraganaBox':baseIndex>1,'hiraganaBoxBase':baseIndex<=1,'hiraganaBoxConjugation':conjugationIndex<=1}">{{box1}}</div>
+        <div [ngClass]="{'hiraganaBox':baseIndex>2,'hiraganaBoxBase':baseIndex<=2,'hiraganaBoxConjugation':conjugationIndex<=2}">{{box2}}</div>
+        <div [ngClass]="{'hiraganaBox':baseIndex>3,'hiraganaBoxBase':baseIndex<=3,'hiraganaBoxConjugation':conjugationIndex<=3}">{{box3}}</div>
+        <div [ngClass]="{'hiraganaBox':baseIndex>4,'hiraganaBoxBase':baseIndex<=4,'hiraganaBoxConjugation':conjugationIndex<=4}">{{box4}}</div>
+        <div [ngClass]="{'hiraganaBox':baseIndex>5,'hiraganaBoxBase':baseIndex<=5,'hiraganaBoxConjugation':conjugationIndex<=5}">{{box5}}</div>
+        <div [ngClass]="{'hiraganaBox':baseIndex>6,'hiraganaBoxBase':baseIndex<=6,'hiraganaBoxConjugation':conjugationIndex<=6}">{{box6}}</div>
+        <div [ngClass]="{'hiraganaBox':baseIndex>7,'hiraganaBoxBase':baseIndex<=7,'hiraganaBoxConjugation':conjugationIndex<=7}">{{box7}}</div>
+        <div [ngClass]="{'hiraganaBox':baseIndex>8,'hiraganaBoxBase':baseIndex<=8,'hiraganaBoxConjugation':conjugationIndex<=8}">{{box8}}</div>
+        <div [ngClass]="{'hiraganaBox':baseIndex>9,'hiraganaBoxBase':baseIndex<=9,'hiraganaBoxConjugation':conjugationIndex<=9}">{{box9}}</div>
+        <div [ngClass]="{'hiraganaBox':baseIndex>10,'hiraganaBoxBase':baseIndex<=10,'hiraganaBoxConjugation':conjugationIndex<=10}">{{box10}}</div>
+        <div [ngClass]="{'hiraganaBox':baseIndex>11,'hiraganaBoxBase':baseIndex<=11,'hiraganaBoxConjugation':conjugationIndex<=11}">{{box11}}</div>
+        <div [ngClass]="{'hiraganaBox':baseIndex>12,'hiraganaBoxBase':baseIndex<=12,'hiraganaBoxConjugation':conjugationIndex<=12}">{{box12}}</div>
+        <div [ngClass]="{'hiraganaBox':baseIndex>13,'hiraganaBoxBase':baseIndex<=13,'hiraganaBoxConjugation':conjugationIndex<=13}">{{box13}}</div>
+        <div [ngClass]="{'hiraganaBox':baseIndex>14,'hiraganaBoxBase':baseIndex<=14,'hiraganaBoxConjugation':conjugationIndex<=14}">{{box14}}</div>
+    </div>
+
+    <div class="verbDetails">
+        <div class="column">
+            <div>{{selectedVerb.dictionaryFormK}} ({{selectedVerb.dictionaryFormHK}}) {{selectedVerb.dictionaryFormRomanji}}</div>
+            <div>{{selectedVerb.english}}</div>
+        </div>
+        <div>{{usage}}</div>
+        <div>{{selectedVerb.verbType}}</div>
+    </div>
+
+    <div class="row">
+        <div class="grid-container">
+            <div class="grid-label-left" (click)="changeVerbBase('1')">
+                <div style="font-size: 20px;">あ</div>
+                <div style="font-size: 20px;">form</div>
+            </div>
+            <div [ngClass]="{'grid-item': baseStartHira!='あ','grid-item-current-last': baseStartHira==='あ'}">あ</div>
+            <div [ngClass]="{'grid-item': baseStartHira!='か','grid-item-current-last': baseStartHira==='か'}">か</div>
+            <div [ngClass]="{'grid-item': baseStartHira!='が','grid-item-current-last': baseStartHira==='が'}">が</div>
+            <div [ngClass]="{'grid-item': baseStartHira!='さ','grid-item-current-last': baseStartHira==='さ'}">さ</div>
+            <div [ngClass]="{'grid-item': baseStartHira!='た','grid-item-current-last': baseStartHira==='た'}">た</div>
+            <div [ngClass]="{'grid-item': baseStartHira!='な','grid-item-current-last': baseStartHira==='な'}">な</div>
+            <div [ngClass]="{'grid-item': baseStartHira!='ば','grid-item-current-last': baseStartHira==='ば'}">ば</div>
+            <div [ngClass]="{'grid-item': baseStartHira!='ま','grid-item-current-last': baseStartHira==='ま'}">ま</div>
+            <div [ngClass]="{'grid-item': baseStartHira!='ら','grid-item-current-last': baseStartHira==='ら'}">ら</div>
+
+            <div class="grid-label-left" (click)="changeVerbBase('2')">
+                <div style="font-size: 20px;">い</div>
+                <div style="font-size: 20px;">form</div>
+            </div>
+            <div [ngClass]="{'grid-item': baseStartHira!='い','grid-item-current-last': baseStartHira==='い'}">い</div>
+            <div [ngClass]="{'grid-item': baseStartHira!='き','grid-item-current-last': baseStartHira==='き'}">き</div>
+            <div [ngClass]="{'grid-item': baseStartHira!='ぎ','grid-item-current-last': baseStartHira==='ぎ'}">ぎ</div>
+            <div [ngClass]="{'grid-item': baseStartHira!='し','grid-item-current-last': baseStartHira==='し'}">し</div>
+            <div [ngClass]="{'grid-item': baseStartHira!='ち','grid-item-current-last': baseStartHira==='ち'}">ち</div>
+            <div [ngClass]="{'grid-item': baseStartHira!='に','grid-item-current-last': baseStartHira==='に'}">に</div>
+            <div [ngClass]="{'grid-item': baseStartHira!='び','grid-item-current-last': baseStartHira==='び'}">び</div>
+            <div [ngClass]="{'grid-item': baseStartHira!='み','grid-item-current-last': baseStartHira==='み'}">み</div>
+            <div [ngClass]="{'grid-item': baseStartHira!='り','grid-item-current-last': baseStartHira==='り'}">り</div>
+
+            <div class="grid-label-left">
+                <div style="font-size: 20px;" (click)="changeVerbBase('3')">う</div>
+                <div style="font-size: 20px;">form</div>
+            </div>
+            <div [ngClass]="{'grid-item': baseStartHira!='う','grid-item-current-last': baseStartHira==='う'}">う</div>
+            <div [ngClass]="{'grid-item': baseStartHira!='く','grid-item-current-last': baseStartHira==='く'}">く</div>
+            <div [ngClass]="{'grid-item': baseStartHira!='ぐ','grid-item-current-last': baseStartHira==='ぐ'}">ぐ</div>
+            <div [ngClass]="{'grid-item': baseStartHira!='す','grid-item-current-last': baseStartHira==='す'}">す</div>
+            <div [ngClass]="{'grid-item': baseStartHira!='つ','grid-item-current-last': baseStartHira==='つ'}">つ</div>
+            <div [ngClass]="{'grid-item': baseStartHira!='ぬ','grid-item-current-last': baseStartHira==='ぬ'}">ぬ</div>
+            <div [ngClass]="{'grid-item': baseStartHira!='ぶ','grid-item-current-last': baseStartHira==='ぶ'}">ぶ</div>
+            <div [ngClass]="{'grid-item': baseStartHira!='む','grid-item-current-last': baseStartHira==='む'}">む</div>
+            <div [ngClass]="{'grid-item': baseStartHira!='る','grid-item-current-last': baseStartHira==='る'}">る</div>
+
+            <div class="grid-label-left">
+                <div style="font-size: 20px;" (click)="changeVerbBase('4')">え</div>
+                <div style="font-size: 20px;">form</div>
+            </div>
+            <div [ngClass]="{'grid-item': baseStartHira!='え','grid-item-current-last': baseStartHira==='え'}">え</div>
+            <div [ngClass]="{'grid-item': baseStartHira!='け','grid-item-current-last': baseStartHira==='け'}">け</div>
+            <div [ngClass]="{'grid-item': baseStartHira!='げ','grid-item-current-last': baseStartHira==='げ'}">げ</div>
+            <div [ngClass]="{'grid-item': baseStartHira!='せ','grid-item-current-last': baseStartHira==='せ'}">せ</div>
+            <div [ngClass]="{'grid-item': baseStartHira!='て','grid-item-current-last': baseStartHira==='て'}">て</div>
+            <div [ngClass]="{'grid-item': baseStartHira!='ね','grid-item-current-last': baseStartHira==='ね'}">ね</div>
+            <div [ngClass]="{'grid-item': baseStartHira!='べ','grid-item-current-last': baseStartHira==='べ'}">べ</div>
+            <div [ngClass]="{'grid-item': baseStartHira!='め','grid-item-current-last': baseStartHira==='め'}">め</div>
+            <div [ngClass]="{'grid-item': baseStartHira!='れ','grid-item-current-last': baseStartHira==='れ'}">れ</div>
+
+            <div class="grid-label-left">
+                <div style="font-size: 20px;" (click)="changeVerbBase('5')">お</div>
+                <div style="font-size: 20px;">form</div>
+            </div>
+            <div [ngClass]="{'grid-item': baseStartHira!='お','grid-item-current-last': baseStartHira==='お'}">お</div>
+            <div [ngClass]="{'grid-item': baseStartHira!='こ','grid-item-current-last': baseStartHira==='こ'}">こ</div>
+            <div [ngClass]="{'grid-item': baseStartHira!='ご','grid-item-current-last': baseStartHira==='ご'}">ご</div>
+            <div [ngClass]="{'grid-item': baseStartHira!='そ','grid-item-current-last': baseStartHira==='そ'}">そ</div>
+            <div [ngClass]="{'grid-item': baseStartHira!='と','grid-item-current-last': baseStartHira==='と'}">と</div>
+            <div [ngClass]="{'grid-item': baseStartHira!='の','grid-item-current-last': baseStartHira==='の'}">の</div>
+            <div [ngClass]="{'grid-item': baseStartHira!='ぼ','grid-item-current-last': baseStartHira==='ぼ'}">ぼ</div>
+            <div [ngClass]="{'grid-item': baseStartHira!='も','grid-item-current-last': baseStartHira==='も'}">も</div>
+            <div [ngClass]="{'grid-item': baseStartHira!='ろ','grid-item-current-last': baseStartHira==='ろ'}">ろ</div>
+
+            <div></div>
+            <div [ngClass]="{'grid-item': baseStartHira!='や','grid-item-current-last': baseStartHira==='や'}">や</div>
+            <div [ngClass]="{'grid-item': baseStartHira!='ゆ','grid-item-current-last': baseStartHira==='ゆ'}">ゆ</div>
+            <div [ngClass]="{'grid-item': baseStartHira!='よ','grid-item-current-last': baseStartHira==='よ'}">よ</div>
+            <div [ngClass]="{'grid-item': baseStartHira!='わ','grid-item-current-last': baseStartHira==='わ'}">わ</div>
+            <div [ngClass]="{'grid-item': baseStartHira!='を','grid-item-current-last': baseStartHira==='を'}">を</div>
+            <div [ngClass]="{'grid-item': baseStartHira!='ん','grid-item-current-last': baseStartHira==='ん'}">ん</div>
+        </div>
+        <div class="input-area">
+            <div>
+                <input type="text" [(ngModel)]="pendingVerb">
+                <button (click)="updateVerb(pendingVerb)">Update Verb</button>
+            </div>
+            <div class="conjugation-buttons">
+                <div *ngIf="currentBase === '2'" class="conjugation-button" (click)="addConjugation('politePresentFuture')">ます</div><!--Polite Present Future-->
+                <div *ngIf="currentBase != '2'" class="conjugation-button-disabled">ます</div>
+                <div *ngIf="currentBase === '2'" class="conjugation-button" (click)="addConjugation('politePast')">ました</div><!--Polite Past-->
+                <div *ngIf="currentBase != '2'" class="conjugation-button-disabled">ました</div>
+                <div *ngIf="currentBase === '2'" class="conjugation-button" (click)="addConjugation('politeNeg')">ません</div><!--Polite Negative (will not)-->
+                <div *ngIf="currentBase != '2'" class="conjugation-button-disabled">ません</div>
+                <div *ngIf="currentBase === '2'" class="conjugation-button" (click)="addConjugation('politePastNeg')">ませんでした</div><!--Polite Negative Past (did not)-->
+                <div *ngIf="currentBase != '2'" class="conjugation-button-disabled">ませんでした</div>
+
+                <div *ngIf="currentBase === '2'" class="conjugation-button" (click)="addConjugation('lets')">ましょう</div><!--Let's...-->
+                <div *ngIf="currentBase != '2'" class="conjugation-button-disabled">ましょう</div>
+                <div *ngIf="currentBase === '0'" class="conjugation-button" (click)="addConjugation('aaa')"></div>
+                <div *ngIf="currentBase != '0'" class="conjugation-button-disabled"></div>
+                <div *ngIf="currentBase === '1'" class="conjugation-button" (click)="addConjugation('plainNeg')">ない</div><!--Plain Negative (will not)-->
+                <div *ngIf="currentBase != '1'" class="conjugation-button-disabled">ない</div>
+                <div *ngIf="currentBase === '1'" class="conjugation-button" (click)="addConjugation('plainPastNeg')">なかった</div><!--Plain Negative Past (did not)-->
+                <div *ngIf="currentBase != '1'" class="conjugation-button-disabled">なかった</div>
+
+                <div *ngIf="currentBase === '0'" class="conjugation-button" (click)="addConjugation('aaa')"></div>
+                <div *ngIf="currentBase != '0'" class="conjugation-button-disabled"></div>
+                <div *ngIf="currentBase === '0'" class="conjugation-button" (click)="addConjugation('aaa')"></div>
+                <div *ngIf="currentBase != '0'" class="conjugation-button-disabled"></div>
+                <div *ngIf="currentBase === '0'" class="conjugation-button" (click)="addConjugation('aaa')"></div>
+                <div *ngIf="currentBase != '0'" class="conjugation-button-disabled"></div>
+                <div *ngIf="currentBase === '0'" class="conjugation-button" (click)="addConjugation('aaa')"></div>
+                <div *ngIf="currentBase != '0'" class="conjugation-button-disabled"></div>
+            </div>
+        </div>
+    </div>
+</div>
