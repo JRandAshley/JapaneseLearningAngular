@@ -34,6 +34,19 @@ export interface Noun {
     tags: string[]
 }
 
+export interface NonConjugating {
+    id: string
+    partOfSpeech: string,
+    hasKanji: boolean,
+    Kanji: string,
+    hiraKata: string,
+    romanji: string,
+    english: string,
+    notes: string,
+    synonyms: string[],
+    tags: string[]
+}
+
 export interface Verb {
     id: string
     verbType: string

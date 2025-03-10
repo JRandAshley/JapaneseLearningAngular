@@ -49,6 +49,7 @@ export class DictionaryConjugationComponent {
     this.displayCharacters = this.verbBase;
     this.conjugationIndex = 20;
 
+    this.changeVerbBase("3")
     this.updateUsage();
     this.updateDisplay();
   }
@@ -73,7 +74,15 @@ export class DictionaryConjugationComponent {
       this.verbBase = this.selectedVerb.B5FormHK;
       this.currentBase = "5";
     }
-    this.baseStartHira = this.verbBase[this.baseIndex];
+    if(base === "te"){
+      this.verbBase = this.selectedVerb.BTeFormHK;
+      this.currentBase = "te";
+    }
+    if(base === "ta"){
+      this.verbBase = this.selectedVerb.BTaFormHK;
+      this.currentBase = "ta";
+    }
+    this.baseStartHira = this.verbBase[this.baseIndex];//clear everything
     this.displayCharacters = this.verbBase;
     this.conjugationIndex = 20;
     this.selectedConjugation = "";
@@ -124,7 +133,7 @@ export class DictionaryConjugationComponent {
         this.usage = "Plain Non-Past"
       }
     }
-    if(this.currentBase === "4"){
+    else if(this.currentBase === "4"){
       if(this.selectedConjugation === "ifVerb"){
         this.usage = "If Verb"
       }
@@ -135,12 +144,25 @@ export class DictionaryConjugationComponent {
         this.usage = "Polite Can Verb (only Godan, becomes Ichidan)"
       }
     }
-    if(this.currentBase === "5"){
+    else if(this.currentBase === "5"){
       if(this.selectedConjugation === "tryTo"){
         this.usage = "Try to Verb"
       }
       else if(this.selectedConjugation === "volitional"){
         this.usage = "pending usage"
+      }
+    }
+    else if(this.currentBase === "te"){
+      if(this.selectedConjugation === ""){
+        this.usage = "Plain Command"
+      }
+      if(this.selectedConjugation === "politeCommand"){
+        this.usage = "Polite Command"
+      }
+    }
+    else if(this.currentBase === "ta"){
+      if(this.selectedConjugation === ""){
+        this.usage = "Plain Past Verb"
       }
     }
   }

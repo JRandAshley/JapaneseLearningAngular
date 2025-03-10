@@ -260,16 +260,6 @@ const Nouns: Noun[] = [{
     notes: "",
     synonyms: [],
     tags: []
-},{
-    id: "!test",
-    hasKanji: true,
-    Kanji: "TEST",
-    hiraKata: "test",
-    romanji: "test",
-    english: "test",
-    notes: "",
-    synonyms: [],
-    tags: []
 }]
 
 const Verbs: Verb[] = [{
